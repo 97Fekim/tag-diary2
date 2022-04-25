@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Tag Diary</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+        <!-- custom CSS -->
+        <link href="/css/custom.css" rel="stylesheet" />
+
+        <!-- search form-->
+        <script src="/js/extention/choices.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="author" content="colorlib.com">
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+        <link href="/css/main.css" rel="stylesheet" />
+
+        <!-- post form -->
+        <link href="/css/post_styles.css" rel="stylesheet" />
+        <script src="/js/post_scripts.js"></script>
+
+    </head>
+    <body>
+
+
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="/">Tag Diary</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <!-- 로그인 x -->
+                    <li class="nav-item" data-bs-toggle="modal" data-bs-target="#ModalForm"
+                        th:if="${!isLogined}">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4 unAuthA" href="/diarys/register">글 쓰기</a>
+                    </li>
+                    <!-- 로그인 o -->
+                    <li class="nav-item"
+                        th:if="${isLogined}">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="/diarys/register">글 쓰기</a>
+                    </li>
+
+                    <!-- 로그인 x -->
+                    <li class="nav-item" data-bs-toggle="modal" data-bs-target="#ModalForm"
+                        th:if="${!isLogined}">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4 unAuthA" href="/diarys/list">목록</a>
+                    </li>
+
+                    <!-- 로그인 o -->
+                    <li class="nav-item"
+                        th:if="${isLogined}">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="/diarys/list">목록</a>
+                    </li>
+
+                    <!-- 로그인 x -->
+                    <li class="nav-item" data-bs-toggle="modal" data-bs-target="#ModalForm"
+                        th:if="${!isLogined}">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4 unAuthA" href="/login">로그인</a>
+                    </li>
+
+                    <!-- 로그인 x -->
+                    <!--<li class="nav-item"
+                        th:if="${!isLogined}">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4 unAuthA" href="/signUp">회원가입</a>
+                    </li>-->
+
+                    <!-- 로그인 o -->
+                    <li class="nav-item" th:if="${isLogined}">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="/logout">로그아웃</a>
+                    </li>
+
+                    <!-- 로그인 o -->
+                    <!--<li th:if="${isLogined}" class="nav-item">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="myInfo">내 정보</a>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('/assets/img/home-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>일기장에는 오늘 <br><span th:style="|color:${tagDTO.color}|">[[${tagDTO.name}]]</span>이 가장 많아요</h1>
+                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    </div>
+                </div>
+            </div><br><br>
+            <div align="center">
+
+                <!-- 로그인 여부에 따라 1)로그인모달 2)글 쓰기 -->
+                <a th:if="${isLogined}" th:href="@{/diarys/register}">
+                    <button class="btn btn-outline-light">글 쓰기</button>
+                </a>
+                <button th:if="${!isLogined}" class="btn btn-outline-light"
+                        data-bs-toggle="modal" data-bs-target="#ModalForm">글 쓰기</button>
+
+                <!-- 로그인 여부에 따라 1)로그인모달 2)글 목록 -->
+                <a th:if="${isLogined}" th:href="@{/diarys/list}">
+                    <button class="btn btn-outline-dark listBtn">글 목록</button>
+                </a>
+                <button th:if="${!isLogined}" class="btn btn-outline-dark listBtn"
+                        data-bs-toggle="modal" data-bs-target="#ModalForm">글 목록</button>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Footer-->
+    <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- signIn Modal -->
+    <div class="modal fade" id="ModalForm" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Login Form -->
+                <form action="/login" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tag Diary</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- user Id -->
+                        <div class="mb-3">
+                            <input type="text" name="username" class="form-control" id="Username" placeholder="아이디">
+                        </div>
+
+                        <!-- user password -->
+                        <div class="mb-3">
+                            <input type="password" name="password" class="form-control" id="Password" placeholder="비밀번호">
+                        </div>
+
+                        <!-- remember me -->
+                        <div class="mb-3">
+                            <input class="form-check-input" type="checkbox" value="" id="remember">
+                            <label class="form-check-label" for="remember">로그인 유지</label>
+                            <a href="#" id="findPasswordBtn" class="float-end">비밀번호 찾기</a>
+                        </div>
+                        <button id="loginBtn" type="button" class="btn btn-primary btn-lg mx-auto w-100">로그인</button>
+                    </div>
+                    <div class="modal-footer pt-4">
+
+                        <button type="button" style="border: 0;outline: 0;margin: auto; background-color: white">
+                            <a href="/oauth2/authorization/naver">
+                                <img src="/assets/img/naverBtn.png" height ="55" width="220" />
+                            </a>
+                        </button>
+
+                        <button type="button" style="border: 0;outline: 0;margin: auto; background-color: white">
+                            <a href="/oauth2/authorization/google">
+                                <img src="/assets/img/googleBtnBlue.png" height ="55" width="220" />
+                            </a>
+                        </button>
+
+                    </div>
+                </form>
+                <p class="text-center">아직 아이디가 없으세요?
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#ModalFormSignUp">회원가입</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- signUp Modal(demo) -->
+    <div class="modal fade" id="ModalFormSignUp" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- signUp Form -->
+                <form action="/signUp" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tag Diary</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- user Id -->
+                        <div class="mb-3">
+                            <input type="text" name="username" class="form-control" id="UsernameSignUp" placeholder="아이디">
+                        </div>
+
+                        <!-- user password -->
+                        <div class="mb-3">
+                            <input type="password" name="password" class="form-control" id="PasswordSignUp" placeholder="비밀번호">
+                        </div>
+
+                        <!-- user Id -->
+                        <div class="mb-3">
+                            <input type="text" name="email" class="form-control" id="EmailSignUp" placeholder="이메일">
+                        </div>
+
+                        <button id="signUpBtn" type="button" class="btn btn-primary btn-lg mx-auto w-100">회원가입</button>
+                    </div>
+                    <div class="modal-footer pt-4">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- Core theme JS-->
+    <script src="/js/scripts.js"></script>
+
+    <script th:inline="javascript">
+
+        /*<![CDATA[*/ var flag = /*[[ ${isLogined} ]]*/; /*]]*/
+
+        console.log(flag);
+
+        /* 로그인전 컨텐츠 제공 방지 */
+        $(document).on("click",".unAuthA", function(e){
+            e.preventDefault();
+        })
+
+        /* 로그인 버튼 처리 */
+        $(document).on("click", "#loginBtn", function(){
+            var userInfo = new Object();
+
+            var username = document.getElementById("Username").value;
+            var password = document.getElementById("Password").value;
+
+            userInfo.username = username;
+            userInfo.password = password;
+
+            console.log(userInfo);
+
+            $.ajax({
+                type:'POST',
+                dataType: 'text',
+                data: 'username='+username + '&password='+password,
+                url:"/login",
+                success: function (data){
+                    location.href="/";
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert("로그인 정보를 확인해주세요");
+                }
+            });
+        })
+
+        $(document).on("click", "#signUpBtn", function(){
+            alert("서비스에 불편을 드려 죄송합니다\n소셜 로그인을 이용해주시기 바랍니다");
+        })
+
+        $(document).on("click", "#findPasswordBtn", function(){
+            alert("서비스에 불편을 드려 죄송합니다\n소셜 로그인을 이용해주시기 바랍니다");
+        })
+
+    </script>
+</body>
+
+</html>

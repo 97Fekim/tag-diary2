@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/basic :: setContent(~{this::content})}">
+    <th:block th:fragment="content">
+
+        <!-- Page Header-->
+        <header class="masthead" style="padding-top: 3rem; padding-bottom: 3rem; background-image: url('/assets/img/space.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+
+                        <h1>[[${diaryDTO.title}]]</h1>
+
+                        <div class="card-body">
+
+                            <div id="diaryContainer" class="post-preview tag-container">
+
+                                <th:block th:each="writeUpDTO : ${diaryDTO.writeUpDTOList}">
+                                    <div id="header-id" class="card-header tag-header" th:style="|background-color: ${writeUpDTO.tagDTO.color}|" th:text="${writeUpDTO.tagDTO.name}">
+                                    </div>
+
+                                    <textarea id="textarea-id"
+                                              class="form-control content-textarea"
+                                              style="border: 0; outline: 0; min-height: 8em; background-color: white"
+                                              disabled="disabled">[[${writeUpDTO.content}]]</textarea>
+
+                                </th:block>
+
+                            </div>
+                            <div style="float: right">
+                                <ul>[[${#temporals.format(diaryDTO.modDate, 'yyyy/MM/dd')}]]</ul>
+
+                            </div>
+
+                        </div>
+                        <div style="float:right;">
+                            <button class="btn btn-outline-secondary btnModify">수정</button>
+                            <button class="btn btn-outline-danger btnRemove">삭제</button>
+                            <a th:href="@{/diarys/list(page=${pageRequestDTO.page},
+                                type=${pageRequestDTO.type},
+                                keyword=${pageRequestDTO.keyword})}">
+                                <button class="btn btn-outline-warning btnList">목록</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <form th:action method="post" id="dummyForm">
+            <input type="hidden" name="dno" th:value="${diaryDTO.dno}">
+            <input type="hidden" name="page" th:value="${pageRequestDTO.page}">
+            <input type="hidden" name="size" th:value="${pageRequestDTO.size}">
+            <input type="hidden" name="type" th:value="${pageRequestDTO.type}">
+            <input type="hidden" name="keyword" th:value="${pageRequestDTO.keyword}">
+        </form>
+
+        <script th:inline="javascript">
+            /* use dummy form */
+            var actionForm = $("form");
+
+            /* 삭제버튼 클릭시 호출되는 함수 */
+            $(".btnRemove").click(function(){
+
+                if(!confirm("삭제 하시겠습니까?")){
+                    return ;
+                }
+
+                actionForm
+                    .attr("action", "/diarys/remove")
+                    .attr("method", "post");
+
+                actionForm.submit();
+            })
+
+             /* 수정 버튼 클릭시 호출되는 함수 */
+            $(".btnModify").click(function(){
+                actionForm
+                    .attr("action", "/diarys/modify")
+                    .attr("method", "get");
+                actionForm.submit();
+            })
+
+
+            document.addEventListener("DOMContentLoaded", function() {
+                var $textarea = document.querySelector("textarea");
+                $textarea.addEventListener('keyup', function(e) {
+                    this.style.height = "auto";
+                    this.style.height = this.scrollHeight + "px";
+                });
+                $textarea.dispatchEvent(new Event('keyup'));
+            });
+        </script>
+
+    </th:block>
+</th:block>

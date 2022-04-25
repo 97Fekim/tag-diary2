@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/basic :: setContent(~{this::content})}">
+    <th:block th:fragment="content">
+
+        <!-- Page Header-->
+        <header class="masthead" style="padding-top: 5rem; padding-bottom: 5rem; background-image: url('/assets/img/beach.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page content-->
+        <div class="container mt-5">
+            <div class="row">
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <!-- Categories widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">태그1</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div id="tagContainer" class="post-preview">
+
+                                    <th:block th:each="tagDTO : ${tagDTOList}">
+                                        <button th:id="${tagDTO.tno}" class="big-tag-box in-tag-container" th:style="|background-color: ${tagDTO.color}|" th:text="${tagDTO.name}"></button>
+                                    </th:block>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header">태그2</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div id="tagContainer2" class="post-preview">
+
+                                    <th:block th:each="tagDTO : ${tagDTOList}">
+
+                                        <button th:id="${tagDTO.tno}" class="big-tag-box in-tag-container" th:style="|background-color: ${tagDTO.color}|" th:text="${tagDTO.name}">
+                                        </button>
+
+                                    </th:block>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Side widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Side Widget</div>
+                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <h1 class="fw-bolder mb-1">
+                        <input id="registerTitle" placeholder="제목을 입력하세요" style="border: 0; outline: 0">
+                    </h1>
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div id="diaryContainer" class="post-preview tag-container">
+
+                            </div>
+                        </div>
+                    </div>
+                    <button id="registerBtn" style="float: right">등록</button>
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            /* tag 공간과 diary 공간 */
+            const tagContainer = document.getElementById("tagContainer");
+            const diaryContainer = document.getElementById("diaryContainer");
+
+            /* tagContainer => diaryContainer */
+            $(document).on("click",".big-tag-box",function() {
+
+                /* 헤더 만들기 */
+                let addHeader = document.createElement('div');
+                addHeader.innerHTML = this.innerHTML;
+                addHeader.setAttribute("id", "header-id-" + this.getAttribute("id"));
+                addHeader.setAttribute("class", "card-header tag-header");
+                addHeader.setAttribute("style", this.getAttribute('style'));
+
+                /* 제거 버튼 만들기 */
+                let removeBtn = document.createElement('button');
+                removeBtn.innerHTML = 'x';
+                removeBtn.setAttribute("style", this.getAttribute('style') + "; color : red; border:0; outline:0; float:right");
+                removeBtn.setAttribute("class", "removeBtn");
+                removeBtn.setAttribute("id", "removeBtn" + this.getAttribute("id"));
+
+                addHeader.appendChild(removeBtn);
+
+                /* text 적힐 곳 만들기 */
+                let addTextarea = document.createElement('textarea');
+                addTextarea.setAttribute("style", "border:0; ouline:0; width:100%; height:10em; resize:none");
+                addTextarea.setAttribute("id", "textarea-id-" + this.getAttribute("id"));
+                addTextarea.setAttribute("class", "form-control content-textarea");
+                addTextarea.setAttribute("placeholder", "내용을 입력하세요");
+
+                /* diaryContainer에 최종 추가 */
+                diaryContainer.appendChild(addHeader);
+                diaryContainer.appendChild(addTextarea);
+
+                /* tagContainer에 있는 Tag 지우면서 끝 */
+                tagContainer.removeChild(this);
+
+            })
+
+
+            /* 삭제 버튼 이벤트 처리
+            * diaryContainer => tagContainer
+            * */
+            $(document).on("click",".removeBtn",function(){
+
+                console.log(this);
+
+                /* Tag의 인덱스만 추출 */
+                var regex = /[^0-9]/g;
+                var index = this.getAttribute("id").replace(regex, "");
+                console.log(index);
+
+                /* 태그 삭제 */
+                var beRemovedTextArea = document.getElementById("textarea-id-"+index);
+                var beRemovedHeader = document.getElementById("header-id-"+index);
+
+                var tagText = beRemovedHeader.innerText;
+                tagText = tagText.substring(0, tagText.length - 2);
+                var tagColor = beRemovedHeader.getAttribute("style");
+
+                diaryContainer.removeChild(beRemovedTextArea);
+                diaryContainer.removeChild(beRemovedHeader);
+
+
+                /* tagContainer에 다시 추가 */
+                let reAddTag = document.createElement('button');
+
+                reAddTag.setAttribute("id", index);
+                reAddTag.setAttribute("class", "big-tag-box in-tag-container");
+                reAddTag.setAttribute("style", tagColor);
+                reAddTag.innerText = tagText;
+
+                tagContainer.appendChild(reAddTag);
+
+            });
+
+            /* 등록 버튼 이벤트 처리 */
+            $(document).on("click", "#registerBtn", function (){
+                console.log("register!!!");
+
+                var registerTitle = document.getElementById("registerTitle").value;
+                var tags = document.getElementsByClassName("tag-header");
+                var contents = document.getElementsByClassName("content-textarea")
+                var regex = /[^0-9]/g;  // id에서 tno만 추출하기 위한 정규 표현식
+
+                /* diaryDTO */
+                var diaryDTO = new Object();
+
+                diaryDTO.title = registerTitle;
+                console.log("diaryDTO : " + diaryDTO);
+
+                var writeUpDTOList = new Array();
+
+                for(var i=0; i<tags.length; ++i){
+
+                    /* writeUpDTOList */
+                    var writeUpDTO = new Object() ;
+
+                    var tno = tags[i].getAttribute("id").replace(regex, "");
+                    var content = contents[i].value;
+
+                    console.log("tag : " + tno);
+                    console.log("content of tag : " + content);
+
+                    /* tagDTO */
+                    var tagDTO = new Object();
+
+                    tagDTO.tno = tno;
+                    writeUpDTO.tagDTO = tagDTO;
+                    writeUpDTO.content = content;
+
+                    writeUpDTOList.push(writeUpDTO);
+                }
+
+                /* null일 경우 예외처리 */
+                if(!registerTitle){
+                    alert("제목을 입력하세요");
+                    return ;
+                }
+
+                if(writeUpDTOList.length === 0){
+                    alert("태그를 추가하세요");
+                    return ;
+                }
+
+                diaryDTO.writeUpDTOList = writeUpDTOList;
+
+                console.log(diaryDTO);
+                console.log("stringified diaryDTO : " + JSON.stringify(diaryDTO));
+
+
+
+                $.ajax({
+                    anyne:true,
+                    type:'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(diaryDTO),
+                    url:"/diarys/register",
+                    success: function (data){
+                        alert("등록이 완료되었습니다");
+                        location.href="/diarys/list";
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert("ERROR : " + textStatus + " : " + errorThrown);
+                    }
+                });
+
+            })
+
+        </script>
+
+    </th:block>
+</th:block>

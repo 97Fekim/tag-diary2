@@ -1,0 +1,21 @@
+.small-tag-box{
+    border: 0;
+    outline: 0;
+    padding:3px;
+    border-radius: 7px 7px 7px 7px;
+}
+.big-tag-box{
+    border:0;
+    outline: 0;
+    padding:3px;
+    border-radius: 7px 7px 7px 7px;
+    width: 75px;
+    height: 75px;
+    margin: 6px;
+    font-size: 18px;
+}
+
+#tagContainer {
+    margin: 6px;
+    padding: 6px;
+}

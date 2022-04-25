@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/basic :: setContent(~{this::content})}">
+    <th:block th:fragment="content">
+
+        <!-- Page Header-->
+        <header class="masthead" style="padding-top: 4rem; padding-bottom: 4rem; background-image: url('/assets/img/sky.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+
+                    <a th:href="@{/diarys/register}">
+                        <button class="btn btn-outline-dark">글 쓰기</button>
+                    </a>
+
+                    <!-- Search -->
+                    <div class="s003">
+                        <form action="/diarys/list" method="get" id="searchForm">
+                            <div class="inner-form">
+
+                                <div class="input-field first-wrap">
+                                    <div class="input-select">
+                                        <input type="hidden" name="page" value="1">
+                                        <select data-trigger="" name="type">
+                                            <!--<option placeholder="">카테고리</option>-->
+                                            <option value="diaryTitle" th:selected="${pageRequestDTO.type == 'diaryTitle'}">제목</option>
+                                            <option value="tagName" th:selected="${pageRequestDTO.type == 'tagName'}">태그</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="input-field second-wrap">
+                                    <input id="search" name="keyword" placeholder="찾으려는 키워드를 입력하세요" />
+                                </div>
+
+                                <div class="input-field third-wrap">
+                                    <button class="btn-search" type="button">
+                                        <svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Articles -->
+                    <tr th:each="dto : ${result.dtoList}">
+                        <!-- Post preview-->
+                        <div class="post-preview">
+                            <a th:href="@{/diarys/read(dno=${dto.dno})}">
+                                <h2 class="post-title">[[${dto.title}]]</h2>
+                            </a>
+                            <th:block th:each="writeUp : ${dto.writeUpDTOList}">
+                                <span class="small-tag-box" th:style="|background-color: ${writeUp.tagDTO.color}|">
+                                    [[${writeUp.tagDTO.name}]]
+                                </span>&nbsp;
+                            </th:block>
+                            <p class="post-meta">
+                                Posted on [[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]
+                            </p>
+                        </div>
+                        <!-- Divider-->
+                        <hr class="my-4" />
+                    </tr>
+
+                    <!-- pagination -->
+                    <ul class="pagination justify-content-center align-items-center">
+
+                        <li class="page-item " th:if="${result.prev}">
+                            <a class="page-link" th:href="@{/diarys/list(page=${result.start-1},
+                            type=${pageRequestDTO.type},
+                            keyword=${pageRequestDTO.keyword})}" tabindex="-1">
+                                Previous
+                            </a>
+                        </li>
+
+                        <li th:class=" 'page-item ' + ${result.page == page?'active':''}"
+                            th:each="page: ${result.pageList}">
+                            <a class="page-link" th:href="@{/diarys/list(page=${page},
+                            type=${pageRequestDTO.type},
+                            keyword=${pageRequestDTO.keyword})}">
+                                [[${page}]]
+                            </a>
+                        </li>
+
+                        <li class="page-item" th:if="${result.next}">
+                            <a class="page-link" th:href="@{/diarys/list(page=${result.end+1},
+                            type=${pageRequestDTO.type},
+                            keyword=${pageRequestDTO.keyword})}">
+                                Next
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <script th:inline="javascript">
+            /* Redirect modal handler */
+            /*var msg = [[${msg}]];
+            console.log(msg);
+
+            if(msg){
+                $(".modal").modal();
+            }*/
+
+            /* search form hanlder */
+            var searchForm = $("#searchForm");
+            // submit
+            $(".btn-search").click(function(e){
+                searchForm.submit();
+            })
+
+            const choices = new Choices('[data-trigger]',
+                {
+                    searchEnabled: false,
+                    itemSelectText: '',
+                });
+
+
+        </script>
+
+
+    </th:block>
+</th:block>
