@@ -22,7 +22,7 @@ import java.util.List;
 @Log4j2
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/diarys/")
+@RequestMapping("/diarys")
 @PreAuthorize("#authMemberDTO != null") // 사용자의 DTO가 있을때만 가능한 요청
 public class DiaryController {
 
