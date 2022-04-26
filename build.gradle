@@ -41,7 +41,7 @@ dependencies {
     implementation 'com.querydsl:querydsl-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
-    compile('org.mariadb.jdbc:mariadb-java-client')
+    implementation 'org.mariadb.jdbc:mariadb-java-client'
 }
 
 tasks.named('test') {
