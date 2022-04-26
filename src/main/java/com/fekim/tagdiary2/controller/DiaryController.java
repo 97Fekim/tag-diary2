@@ -82,10 +82,10 @@ public class DiaryController {
 
         /* 다른 회원의 게시글을 조회하려 접근하면, list로 redirect시킵니다. */
         if(!diaryDTO.getWriterId().equals(authMemberDTO.getId())) {
-            return "redirect:/diarys/list";
+            return "redirect:diarys/list";
         } else {
             model.addAttribute("diaryDTO", diaryDTO);
-            return "/diarys/read";
+            return "diarys/read";
         }
 
     }
