@@ -35,7 +35,6 @@ dependencies {
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
-    runtimeOnly 'com.h2database:h2'
 
     implementation 'org.thymeleaf.extras:thymeleaf-extras-java8time'
     implementation 'com.querydsl:querydsl-jpa'
