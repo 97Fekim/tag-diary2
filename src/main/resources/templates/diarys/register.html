@@ -21,26 +21,36 @@
                 <div class="col-lg-4">
                     <!-- Categories widget-->
                     <div class="card mb-4">
-                        <div class="card-header">태그1</div>
+                        <div class="card-header">감정</div>
                         <div class="card-body">
                             <div class="row">
-                                <div id="tagContainer" class="post-preview">
+                                <div id="tagContainer-emotion" class="post-preview">
 
                                     <th:block th:each="tagDTO : ${tagDTOList}">
-                                        <button th:id="${tagDTO.tno}" class="big-tag-box in-tag-container" th:style="|background-color: ${tagDTO.color}|" th:text="${tagDTO.name}"></button>
+                                        <button th:if="${tagDTO.type=='emotion'}"
+                                                th:id="${tagDTO.tno}"
+                                                class="big-tag-box in-tag-container"
+                                                th:type="${tagDTO.type}"
+                                                th:style="|background-color: ${tagDTO.color}|"
+                                                th:text="${tagDTO.name}"></button>
                                     </th:block>
 
                                 </div>
                             </div>
                         </div>
-                        <div class="card-header">태그2</div>
+                        <div class="card-header">여가</div>
                         <div class="card-body">
                             <div class="row">
-                                <div id="tagContainer2" class="post-preview">
+                                <div id="tagContainer-hobby" class="post-preview">
 
                                     <th:block th:each="tagDTO : ${tagDTOList}">
 
-                                        <button th:id="${tagDTO.tno}" class="big-tag-box in-tag-container" th:style="|background-color: ${tagDTO.color}|" th:text="${tagDTO.name}">
+                                        <button th:if="${tagDTO.type=='hobby'}"
+                                                th:id="${tagDTO.tno}"
+                                                class="big-tag-box in-tag-container"
+                                                th:type="${tagDTO.type}"
+                                                th:style="|background-color: ${tagDTO.color}|"
+                                                th:text="${tagDTO.name}">
                                         </button>
 
                                     </th:block>
@@ -95,6 +105,7 @@
                 removeBtn.setAttribute("style", this.getAttribute('style') + "; color : red; border:0; outline:0; float:right");
                 removeBtn.setAttribute("class", "removeBtn");
                 removeBtn.setAttribute("id", "removeBtn" + this.getAttribute("id"));
+                removeBtn.setAttribute("type", this.getAttribute("type"));
 
                 addHeader.appendChild(removeBtn);
 
@@ -110,7 +121,7 @@
                 diaryContainer.appendChild(addTextarea);
 
                 /* tagContainer에 있는 Tag 지우면서 끝 */
-                tagContainer.removeChild(this);
+                document.getElementById("tagContainer"+"-"+this.getAttribute("type")).removeChild(this);
 
             })
 
@@ -145,9 +156,10 @@
                 reAddTag.setAttribute("id", index);
                 reAddTag.setAttribute("class", "big-tag-box in-tag-container");
                 reAddTag.setAttribute("style", tagColor);
+                reAddTag.setAttribute("type", this.getAttribute("type"));
                 reAddTag.innerText = tagText;
 
-                tagContainer.appendChild(reAddTag);
+                document.getElementById("tagContainer"+"-"+this.getAttribute("type")).appendChild(reAddTag);
 
             });
 
