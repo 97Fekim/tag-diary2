@@ -82,7 +82,7 @@ public class DiaryController {
 
         /* 다른 회원의 게시글을 조회하려 접근하면, list로 redirect시킵니다. */
         if(!diaryDTO.getWriterId().equals(authMemberDTO.getId())) {
-            return "redirect:diarys/list";
+            return "redirect:/diarys/list";
         } else {
             model.addAttribute("diaryDTO", diaryDTO);
             return "diarys/read";
@@ -118,7 +118,7 @@ public class DiaryController {
 
         /* 다른 회원의 게시글을 수정하려 접근하면, list로 redirect시킵니다. */
         if(!diaryDTO.getWriterId().equals(authMemberDTO.getId())) {
-            return "redirect:diarys/list";
+            return "redirect:/diarys/list";
         } else {
             model.addAttribute("tags", tagDTOList);
             model.addAttribute("diaryDTO", diaryDTO);
@@ -143,7 +143,7 @@ public class DiaryController {
         redirectAttributes.addAttribute("keyword", pageRequestDTO.getKeyword());
         redirectAttributes.addAttribute("dno", diaryDTO.getDno());
 
-        return "redirect:list";
+        return "redirect:/diarys/list";
 
     }
 
@@ -156,7 +156,7 @@ public class DiaryController {
 
         redirectAttributes.addFlashAttribute("msg", dno);
 
-        return "redirect:diarys/list";
+        return "redirect:/diarys/list";
 
     }
 
