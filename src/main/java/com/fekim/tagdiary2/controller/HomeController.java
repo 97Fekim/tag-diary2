@@ -21,13 +21,15 @@ public class HomeController {
     public String home(@AuthenticationPrincipal AuthMemberDTO authMemberDTO,
                        Model model){
 
-        TagDTO tagDTO = tagService.getMostPopularTag("emotion");
+        TagDTO tagDTOEmotion = tagService.getMostPopularTag("emotion");
+        TagDTO tagDTOHobby = tagService.getMostPopularTag("hobby");
 
         log.info("================authMemberDTO : " + authMemberDTO);
 
         boolean isLogined = authMemberDTO != null;
 
-        model.addAttribute("tagDTO", tagDTO);
+        model.addAttribute("tagDTOEmotion", tagDTOEmotion);
+        model.addAttribute("tagDTOHobby", tagDTOHobby);
         model.addAttribute("isLogined", isLogined);
 
         return "home";
