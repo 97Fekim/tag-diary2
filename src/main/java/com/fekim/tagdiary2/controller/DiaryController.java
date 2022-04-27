@@ -143,7 +143,7 @@ public class DiaryController {
         redirectAttributes.addAttribute("keyword", pageRequestDTO.getKeyword());
         redirectAttributes.addAttribute("dno", diaryDTO.getDno());
 
-        return "redirect:diarys/list";
+        return "redirect:list";
 
     }
 
