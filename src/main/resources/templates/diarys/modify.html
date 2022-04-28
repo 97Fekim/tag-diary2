@@ -5,6 +5,45 @@
 
         <div class="container mt-5">
             <div class="row">
+
+                <!-- text contents -->
+                <div class="col-lg-8">
+                    <h1 class="fw-bolder mb-1">
+                        <input id="registerTitle" placeholder="제목을 입력하세요" th:value="${diaryDTO.title}" style="border: 0; outline: 0">
+                    </h1>
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div id="diaryContainer" class="post-preview tag-container">
+
+                                <th:block th:each="writeUpDTO : ${diaryDTO.WriteUpDTOList}">
+
+                                    <!-- diary header -->
+                                    <div th:id="'header-id-'+${writeUpDTO.TagDTO.tno}"
+                                         class="card-header tag-header"
+                                         th:style="'background-color:'+${writeUpDTO.TagDTO.color}+';'">
+                                        [[${writeUpDTO.tagDTO.name}]]
+                                        <!-- remove button -->
+                                        <button th:style="'background-color:'+${writeUpDTO.TagDTO.color}+'; color : red; border:0; outline:0; float:right'"
+                                                th:type = "${writeUpDTO.tagDTO.type}"
+                                                class="removeBtn"
+                                                th:id="'removeBtn' + ${writeUpDTO.tagDTO.tno}">x</button>
+                                    </div>
+                                    <!-- diary content -->
+                                    <textarea th:id="'textarea-id-'+${writeUpDTO.TagDTO.tno}"
+                                              class="form-control content-textarea"
+                                              style="border:0; ouline:0; width:100%; height:8em; resize:none;">[[${writeUpDTO.content}]]</textarea>
+                                </th:block>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div style="float: left">
+                        <button type="button" class="btn btn-outline-success" id="registerBtn">등록</button>
+                        <button type="button" class="btn btn-outline-dark" id="cancelBtn">취소</button>
+                    </div>
+                </div>
+
                 <!-- Side widgets-->
                 <div class="col-lg-4">
                     <!-- Categories widget-->
@@ -54,42 +93,6 @@
                     </div>
                 </div>
 
-                <div class="col-lg-8">
-                    <h1 class="fw-bolder mb-1">
-                        <input id="registerTitle" placeholder="제목을 입력하세요" th:value="${diaryDTO.title}" style="border: 0; outline: 0">
-                    </h1>
-                    <div class="card-body">
-                        <div class="row">
-
-                            <div id="diaryContainer" class="post-preview tag-container">
-
-                                <th:block th:each="writeUpDTO : ${diaryDTO.WriteUpDTOList}">
-
-                                    <!-- diary header -->
-                                    <div th:id="'header-id-'+${writeUpDTO.TagDTO.tno}"
-                                         class="card-header tag-header"
-                                         th:style="'background-color:'+${writeUpDTO.TagDTO.color}+';'">
-                                        [[${writeUpDTO.tagDTO.name}]]
-                                        <!-- remove button -->
-                                        <button th:style="'background-color:'+${writeUpDTO.TagDTO.color}+'; color : red; border:0; outline:0; float:right'"
-                                                th:type = "${writeUpDTO.tagDTO.type}"
-                                                class="removeBtn"
-                                                th:id="'removeBtn' + ${writeUpDTO.tagDTO.tno}">x</button>
-                                    </div>
-                                    <!-- diary content -->
-                                    <textarea th:id="'textarea-id-'+${writeUpDTO.TagDTO.tno}"
-                                              class="form-control content-textarea"
-                                              style="border:0; ouline:0; width:100%; height:8em; resize:none;">[[${writeUpDTO.content}]]</textarea>
-                                </th:block>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div style="float: right">
-                        <button type="button" class="btn btn-outline-success" id="registerBtn">등록</button>
-                        <button type="button" class="btn btn-outline-dark" id="cancelBtn">취소</button>
-                    </div>
-                </div>
             </div>
 
         </div>
