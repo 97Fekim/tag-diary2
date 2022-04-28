@@ -67,7 +67,10 @@
                             </div>
                         </div>
                     </div>
-                    <button id="registerBtn" style="float: right">등록</button>
+                    <div style="float: right">
+                        <button id="registerBtn" type="button" class="btn btn-outline-success">등록</button>
+                        <button id="cancelRegisterBtn" type="button" class="btn btn-outline-dark">취소</button>
+                    </div>
                 </div>
             </div>
 
@@ -220,6 +223,12 @@
                 });
 
             })
+
+            /* 취소 버튼 처리 */
+            $(document).on("click", "#cancelRegisterBtn", function (){
+                console.log("back!!");
+                history.back();
+            });
 
         </script>
 
