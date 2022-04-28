@@ -19,26 +19,36 @@
                 <div class="col-lg-4">
                     <!-- Categories widget-->
                     <div class="card mb-4">
-                        <div class="card-header">태그1</div>
+                        <div class="card-header">감정</div>
                         <div class="card-body">
                             <div class="row">
-                                <div id="tagContainer" class="post-preview">
+                                <div id="tagContainer-emotion" class="post-preview">
                                     <th:block th:each="tagDTO : ${tags}">
-                                        <th:block >
-                                            <button th:id="${tagDTO.tno}" class="big-tag-box in-tag-container" th:style="|background-color: ${tagDTO.color}|" th:text="${tagDTO.name}"></button>
-                                        </th:block>
+
+                                        <button th:if="${tagDTO.type=='emotion'}"
+                                                th:id="${tagDTO.tno}"
+                                                class="big-tag-box in-tag-container"
+                                                th:type="${tagDTO.type}"
+                                                th:style="|background-color: ${tagDTO.color}|"
+                                                th:text="${tagDTO.name}"></button>
+
                                     </th:block>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-header">태그2</div>
+                        <div class="card-header">여가</div>
                         <div class="card-body">
                             <div class="row">
-                                <div id="tagContainer2" class="post-preview">
+                                <div id="tagContainer-hobby" class="post-preview">
 
                                     <th:block th:each="tagDTO : ${tags}">
 
-                                        <button th:id="${tagDTO.tno}" class="big-tag-box in-tag-container" th:style="|background-color: ${tagDTO.color}|" th:text="${tagDTO.name}">
+                                        <button th:if="${tagDTO.type=='hobby'}"
+                                                th:id="${tagDTO.tno}"
+                                                class="big-tag-box in-tag-container"
+                                                th:type="${tagDTO.type}"
+                                                th:style="|background-color: ${tagDTO.color}|"
+                                                th:text="${tagDTO.name}">
                                         </button>
 
                                     </th:block>
@@ -67,21 +77,19 @@
 
                                     <!-- diary header -->
                                     <div th:id="'header-id-'+${writeUpDTO.TagDTO.tno}"
-                                    class="card-header tag-header"
-                                    th:style="'background-color:'+${writeUpDTO.TagDTO.color}+';'">
+                                         class="card-header tag-header"
+                                         th:style="'background-color:'+${writeUpDTO.TagDTO.color}+';'">
                                         [[${writeUpDTO.tagDTO.name}]]
                                         <!-- remove button -->
                                         <button th:style="'background-color:'+${writeUpDTO.TagDTO.color}+'; color : red; border:0; outline:0; float:right'"
-                                        class="removeBtn"
-                                        th:id="'removeBtn' + ${writeUpDTO.tagDTO.tno}">
-                                            x
-                                        </button>
+                                                th:type = "${writeUpDTO.tagDTO.type}"
+                                                class="removeBtn"
+                                                th:id="'removeBtn' + ${writeUpDTO.tagDTO.tno}">x</button>
                                     </div>
                                     <!-- diary content -->
                                     <textarea th:id="'textarea-id-'+${writeUpDTO.TagDTO.tno}"
-                                    class="form-control content-textarea"
-                                    style="border:0; ouline:0; width:100%; height:8em; resize:none;">[[${writeUpDTO.content}]]</textarea>
-
+                                              class="form-control content-textarea"
+                                              style="border:0; ouline:0; width:100%; height:8em; resize:none;">[[${writeUpDTO.content}]]</textarea>
                                 </th:block>
 
                             </div>
@@ -98,8 +106,7 @@
 
 
         <script th:inline="javascript">
-            /* tag 공간과 diary 공간 */
-            const tagContainer = document.getElementById("tagContainer");
+            /* tag diary 공간 */
             const diaryContainer = document.getElementById("diaryContainer");
 
             /* tagContainer => diaryContainer */
@@ -118,6 +125,7 @@
                 removeBtn.setAttribute("style", this.getAttribute('style') + "; color : red; border:0; outline:0; float:right");
                 removeBtn.setAttribute("class", "removeBtn");
                 removeBtn.setAttribute("id", "removeBtn" + this.getAttribute("id"));
+                removeBtn.setAttribute("type", this.getAttribute("type"));
 
                 addHeader.appendChild(removeBtn);
 
@@ -133,7 +141,7 @@
                 diaryContainer.appendChild(addTextarea);
 
                 /* tagContainer에 있는 Tag 지우면서 끝 */
-                tagContainer.removeChild(this);
+                document.getElementById("tagContainer"+"-"+this.getAttribute("type")).removeChild(this);
 
             })
 
@@ -168,9 +176,10 @@
                 reAddTag.setAttribute("id", index);
                 reAddTag.setAttribute("class", "big-tag-box in-tag-container");
                 reAddTag.setAttribute("style", tagColor);
+                reAddTag.setAttribute("type", this.getAttribute("type"));
                 reAddTag.innerText = tagText;
 
-                tagContainer.appendChild(reAddTag);
+                document.getElementById("tagContainer"+"-"+this.getAttribute("type")).appendChild(reAddTag);
 
             });
 
