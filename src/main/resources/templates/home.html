@@ -108,19 +108,30 @@
             </div><br><br>
             <div align="center">
 
-                <!-- 로그인 여부에 따라 1)로그인모달 2)글 쓰기 -->
-                <a th:if="${isLogined}" th:href="@{/diarys/register}">
-                    <button class="btn btn-outline-light">글 쓰기</button>
-                </a>
-                <button th:if="${!isLogined}" class="btn btn-outline-light"
-                        data-bs-toggle="modal" data-bs-target="#ModalForm">글 쓰기</button>
+                <!-- 로그인 여부에 따라 토글 -->
+                <!-- 1)로그인 모달 -->
+                <button th:if="${!isLogined}"
+                        class="btn btn-outline-light btn-lg"
+                        data-bs-toggle="modal"
+                        data-bs-target="#ModalForm"
+                        style="font-weight: bold; font-size: 25px">글 쓰기</button>
 
-                <!-- 로그인 여부에 따라 1)로그인모달 2)글 목록 -->
-                <a th:if="${isLogined}" th:href="@{/diarys/list}">
-                    <button class="btn btn-outline-dark listBtn">글 목록</button>
+                <!-- 2)글 쓰기-->
+                <a th:if="${isLogined}" th:href="@{/diarys/register}">
+                    <button class="btn btn-outline-light btn-lg" style="font-weight: bold; font-size: 25px">글 쓰기</button>
                 </a>
-                <button th:if="${!isLogined}" class="btn btn-outline-dark listBtn"
-                        data-bs-toggle="modal" data-bs-target="#ModalForm">글 목록</button>
+
+                <!-- 1) 로그인 모달 -->
+                <button th:if="${!isLogined}"
+                        class="btn btn-outline-light btn-lg listBtn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#ModalForm"
+                        style="font-weight: bold; font-size: 25px">글 목록</button>
+
+                <!-- 2)글 목록 -->
+                <a th:if="${isLogined}" th:href="@{/diarys/list}">
+                    <button class="btn btn-outline-light btn-lg listBtn" style="font-weight: bold; font-size: 25px">글 목록</button>
+                </a>
 
             </div>
         </div>
