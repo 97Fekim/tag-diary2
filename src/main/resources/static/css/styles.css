@@ -11226,7 +11226,7 @@ header.masthead .site-heading .h1 {
 }
 .post-preview > a > .post-title {
   font-size: 1.875rem;
-  margin-top: 1.875rem;
+  margin-top: 0.625rem;
   margin-bottom: 0.625rem;
 }
 .post-preview > a > .post-subtitle {
@@ -11234,9 +11234,9 @@ header.masthead .site-heading .h1 {
   margin-bottom: 0.625rem;
 }
 .post-preview > .post-meta {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   font-style: italic;
-  margin-top: 0;
+  margin-top: 4px;
   color: #6c757d;
 }
 .post-preview > .post-meta > a {

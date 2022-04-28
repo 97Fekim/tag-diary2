@@ -822,7 +822,8 @@ legend {
   background-color: white;
   background-size: cover;
   background-position: center center;
-  padding: 2px;
+  /*padding: 1px;*/
+  margin-bottom: 20px;
 }
 
 .s003 form {
@@ -845,7 +846,7 @@ legend {
 }
 
 .s003 form .inner-form .input-field {
-  height: 50px;
+  height: 40px;
 }
 
 .s003 form .inner-form .input-field input {
@@ -855,23 +856,23 @@ legend {
   display: block;
   width: 100%;
   padding: 10px 32px;
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
 }
 
 .s003 form .inner-form .input-field input.placeholder {
   color: #888;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .s003 form .inner-form .input-field input:-moz-placeholder {
   color: #888;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .s003 form .inner-form .input-field input::-webkit-input-placeholder {
   color: #888;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .s003 form .inner-form .input-field input:hover, .s003 form .inner-form .input-field input:focus {
@@ -989,7 +990,7 @@ legend {
 
 @media screen and (max-width: 992px) {
   .s003 form .inner-form .input-field {
-    height: 50px;
+    height: 35px;
   }
 }
 
