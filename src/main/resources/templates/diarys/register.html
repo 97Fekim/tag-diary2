@@ -85,7 +85,8 @@
         </div>
 
         <script>
-            /* tag diary 공간 */
+            /* tag 공간과 diary 공간 */
+            const tagContainer = document.getElementById("tagContainer");
             const diaryContainer = document.getElementById("diaryContainer");
 
             /* tagContainer => diaryContainer */
@@ -215,6 +216,8 @@
 
                 console.log(diaryDTO);
                 console.log("stringified diaryDTO : " + JSON.stringify(diaryDTO));
+
+
 
                 $.ajax({
                     anyne:true,
