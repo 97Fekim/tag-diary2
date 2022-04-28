@@ -31,15 +31,14 @@
                                 <ul>[[${#temporals.format(diaryDTO.modDate, 'yyyy/MM/dd')}]]</ul>
 
                             </div>
-
                         </div>
                         <div style="float:right;">
-                            <button class="btn btn-outline-secondary btnModify">수정</button>
+                            <button class="btn btn-outline-success btnModify">수정</button>
                             <button class="btn btn-outline-danger btnRemove">삭제</button>
                             <a th:href="@{/diarys/list(page=${pageRequestDTO.page},
                                 type=${pageRequestDTO.type},
                                 keyword=${pageRequestDTO.keyword})}">
-                                <button class="btn btn-outline-warning btnList">목록</button>
+                                <button class="btn btn-outline-dark btnList">목록</button>
                             </a>
                         </div>
                     </div>
