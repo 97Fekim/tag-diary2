@@ -11119,7 +11119,7 @@ footer {
 
 header.masthead {
   position: relative;
-  margin-bottom: 1rem;
+  /*margin-bottom: 1rem;*/
   padding-top: calc(8rem + 57px);
   padding-bottom: 8rem;
   background: no-repeat center center;
@@ -11186,8 +11186,8 @@ header.masthead .post-heading .meta a {
 
 @media (min-width: 992px) {
   header.masthead {
-    padding-top: 12.5rem;
-    padding-bottom: 12.5rem;
+    padding-top: 15rem;
+    padding-bottom: 22rem;
   }
   header.masthead .page-heading h1, header.masthead .page-heading .h1,
 header.masthead .site-heading h1,
@@ -11226,7 +11226,7 @@ header.masthead .site-heading .h1 {
 }
 .post-preview > a > .post-title {
   font-size: 1.875rem;
-  margin-top: 1.875rem;
+  margin-top: 0.625rem;
   margin-bottom: 0.625rem;
 }
 .post-preview > a > .post-subtitle {
@@ -11234,9 +11234,9 @@ header.masthead .site-heading .h1 {
   margin-bottom: 0.625rem;
 }
 .post-preview > .post-meta {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   font-style: italic;
-  margin-top: 0;
+  margin-top: 4px;
   color: #6c757d;
 }
 .post-preview > .post-meta > a {

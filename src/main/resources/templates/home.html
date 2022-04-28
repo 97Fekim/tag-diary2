@@ -49,24 +49,24 @@
                     <!-- 로그인 x -->
                     <li class="nav-item" data-bs-toggle="modal" data-bs-target="#ModalForm"
                         th:if="${!isLogined}">
-                        <a class="nav-link px-lg-3 py-3 py-lg-4 unAuthA" href="/diarys/register">글 쓰기</a>
+                        <a class="nav-link px-lg-3 py-3 py-lg-4 unAuthA" href="/diarys/register">새 글 작성</a>
                     </li>
                     <!-- 로그인 o -->
                     <li class="nav-item"
                         th:if="${isLogined}">
-                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="/diarys/register">글 쓰기</a>
+                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="/diarys/register">새 글 작성</a>
                     </li>
 
                     <!-- 로그인 x -->
                     <li class="nav-item" data-bs-toggle="modal" data-bs-target="#ModalForm"
                         th:if="${!isLogined}">
-                        <a class="nav-link px-lg-3 py-3 py-lg-4 unAuthA" href="/diarys/list">목록</a>
+                        <a class="nav-link px-lg-3 py-3 py-lg-4 unAuthA" href="/diarys/list">글 목록</a>
                     </li>
 
                     <!-- 로그인 o -->
                     <li class="nav-item"
                         th:if="${isLogined}">
-                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="/diarys/list">목록</a>
+                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="/diarys/list">글 목록</a>
                     </li>
 
                     <!-- 로그인 x -->
@@ -97,31 +97,41 @@
 
 
     <!-- Page Header-->
-    <header class="masthead" style="background-image: url('/assets/img/home-bg.jpg')">
+    <header class="masthead" style="background-image: url('/assets/img/note2.jpg')">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="site-heading">
                         <h1>오늘 일기장엔 <br><span th:style="|color:${tagDTOEmotion.color}|">[[${tagDTOEmotion.name}]]</span>, <span th:style="|color:${tagDTOHobby.color}|">[[${tagDTOHobby.name}]]</span>가<br> 가장 많아요</h1>
-                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
                     </div>
                 </div>
             </div><br><br>
             <div align="center">
 
-                <!-- 로그인 여부에 따라 1)로그인모달 2)글 쓰기 -->
-                <a th:if="${isLogined}" th:href="@{/diarys/register}">
-                    <button class="btn btn-outline-light">글 쓰기</button>
-                </a>
-                <button th:if="${!isLogined}" class="btn btn-outline-light"
-                        data-bs-toggle="modal" data-bs-target="#ModalForm">글 쓰기</button>
+                <!-- 로그인 여부에 따라 토글 -->
+                <!-- 1)로그인 모달 -->
+                <button th:if="${!isLogined}"
+                        class="btn btn-outline-light btn-lg"
+                        data-bs-toggle="modal"
+                        data-bs-target="#ModalForm"
+                        style="font-weight: bold; font-size: 20px">글 쓰기</button>
 
-                <!-- 로그인 여부에 따라 1)로그인모달 2)글 목록 -->
-                <a th:if="${isLogined}" th:href="@{/diarys/list}">
-                    <button class="btn btn-outline-dark listBtn">글 목록</button>
+                <!-- 2)글 쓰기-->
+                <a th:if="${isLogined}" th:href="@{/diarys/register}">
+                    <button class="btn btn-outline-light btn-lg" style="font-weight: bold; font-size: 20px">글 쓰기</button>
                 </a>
-                <button th:if="${!isLogined}" class="btn btn-outline-dark listBtn"
-                        data-bs-toggle="modal" data-bs-target="#ModalForm">글 목록</button>
+
+                <!-- 1) 로그인 모달 -->
+                <button th:if="${!isLogined}"
+                        class="btn btn-outline-light btn-lg listBtn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#ModalForm"
+                        style="font-weight: bold; font-size: 20px">글 목록</button>
+
+                <!-- 2)글 목록 -->
+                <a th:if="${isLogined}" th:href="@{/diarys/list}">
+                    <button class="btn btn-outline-light btn-lg listBtn" style="font-weight: bold; font-size: 20px">글 목록</button>
+                </a>
 
             </div>
         </div>
@@ -134,31 +144,15 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <ul class="list-inline text-center">
                         <li class="list-inline-item">
-                            <a href="#!">
+                            <a href="https://github.com/97Fekim">
                                 <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fas fa-circle fa-stack-2x" style="color: black"></i>
                                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
                         </li>
                     </ul>
-                    <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
+                    <div class="small text-center text-muted fst-italic">Copyright 2022 fekim</div>
                 </div>
             </div>
         </div>
