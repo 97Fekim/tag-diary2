@@ -2,6 +2,13 @@
 [데모 서비스 링크](http://ec2-13-125-116-130.ap-northeast-2.compute.amazonaws.com:8080/)
 
 # 소개
+손쉽게 로그인하고 다른사람들과 일상을 나눠요
+![손쉽게 로그인하고 일상을 나눠요](https://user-images.githubusercontent.com/81150979/165908503-d48aaeed-524b-4068-8ca2-cddf5e9e448e.gif)
+
+무슨 내용을 쓸까 고민??? No
+태그를 골라서 간단하게 적어요
+![쉽게 사용해요](https://user-images.githubusercontent.com/81150979/165909210-75192e0e-8187-4b27-84d0-913373bb73f7.gif)
+
 
 
 # 제작 기간 및 목적
