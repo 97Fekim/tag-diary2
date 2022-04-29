@@ -1,9 +1,9 @@
-package com.fekim.tagdiary2.tag.service;
+package com.fekim.tagdiary2.diary.service;
 
-import com.fekim.tagdiary2.tag.domain.Tag;
-import com.fekim.tagdiary2.tag.domain.TagRepository;
-import com.fekim.tagdiary2.tag.dto.TagDTO;
-import com.fekim.tagdiary2.writeup.domain.WriteUpRepository;
+import com.fekim.tagdiary2.diary.domain.Tag;
+import com.fekim.tagdiary2.diary.domain.TagRepository;
+import com.fekim.tagdiary2.diary.dto.TagDTO;
+import com.fekim.tagdiary2.diary.domain.WriteUpRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;

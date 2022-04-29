@@ -1,7 +1,7 @@
-package com.fekim.tagdiary2.tag.service;
+package com.fekim.tagdiary2.diary.service;
 
-import com.fekim.tagdiary2.tag.domain.Tag;
-import com.fekim.tagdiary2.tag.dto.TagDTO;
+import com.fekim.tagdiary2.diary.domain.Tag;
+import com.fekim.tagdiary2.diary.dto.TagDTO;
 
 import java.util.List;
 

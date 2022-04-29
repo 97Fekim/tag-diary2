@@ -1,4 +1,4 @@
-package com.fekim.tagdiary2.writeup.domain;
+package com.fekim.tagdiary2.diary.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

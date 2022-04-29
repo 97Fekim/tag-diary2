@@ -1,4 +1,4 @@
-package com.fekim.tagdiary2.tag.dto;
+package com.fekim.tagdiary2.diary.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

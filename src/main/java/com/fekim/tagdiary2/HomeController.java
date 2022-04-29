@@ -1,8 +1,8 @@
 package com.fekim.tagdiary2;
 
 import com.fekim.tagdiary2.security.dto.AuthMemberDTO;
-import com.fekim.tagdiary2.tag.dto.TagDTO;
-import com.fekim.tagdiary2.tag.service.TagService;
+import com.fekim.tagdiary2.diary.dto.TagDTO;
+import com.fekim.tagdiary2.diary.service.TagService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

@@ -1,7 +1,6 @@
 package com.fekim.tagdiary2.diary.domain;
 
 import com.fekim.tagdiary2.BaseEntity;
-import com.fekim.tagdiary2.member.domain.Member;
 import lombok.*;
 
 import javax.persistence.*;

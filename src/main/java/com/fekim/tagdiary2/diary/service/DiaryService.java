@@ -4,11 +4,11 @@ import com.fekim.tagdiary2.diary.domain.Diary;
 import com.fekim.tagdiary2.diary.dto.DiaryDTO;
 import com.fekim.tagdiary2.diary.dto.PageRequestDTO;
 import com.fekim.tagdiary2.diary.dto.PageResultDTO;
-import com.fekim.tagdiary2.member.domain.Member;
-import com.fekim.tagdiary2.tag.domain.Tag;
-import com.fekim.tagdiary2.tag.dto.TagDTO;
-import com.fekim.tagdiary2.writeup.domain.WriteUp;
-import com.fekim.tagdiary2.writeup.dto.WriteUpDTO;
+import com.fekim.tagdiary2.diary.domain.Member;
+import com.fekim.tagdiary2.diary.domain.Tag;
+import com.fekim.tagdiary2.diary.dto.TagDTO;
+import com.fekim.tagdiary2.diary.domain.WriteUp;
+import com.fekim.tagdiary2.diary.dto.WriteUpDTO;
 
 import java.util.HashMap;
 import java.util.List;

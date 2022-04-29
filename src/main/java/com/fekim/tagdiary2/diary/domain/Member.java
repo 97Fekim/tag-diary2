@@ -1,4 +1,4 @@
-package com.fekim.tagdiary2.member.domain;
+package com.fekim.tagdiary2.diary.domain;
 
 import com.fekim.tagdiary2.BaseEntity;
 import lombok.*;

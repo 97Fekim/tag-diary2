@@ -1,6 +1,6 @@
-package com.fekim.tagdiary2.writeup.dto;
+package com.fekim.tagdiary2.diary.dto;
 
-import com.fekim.tagdiary2.tag.dto.TagDTO;
+import com.fekim.tagdiary2.diary.dto.TagDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

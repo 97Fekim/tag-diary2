@@ -1,8 +1,8 @@
 package com.fekim.tagdiary2.security.service;
 
-import com.fekim.tagdiary2.member.domain.Member;
-import com.fekim.tagdiary2.member.domain.MemberRepository;
-import com.fekim.tagdiary2.member.domain.MemberRole;
+import com.fekim.tagdiary2.diary.domain.Member;
+import com.fekim.tagdiary2.diary.domain.MemberRepository;
+import com.fekim.tagdiary2.diary.domain.MemberRole;
 import com.fekim.tagdiary2.security.dto.AuthMemberDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

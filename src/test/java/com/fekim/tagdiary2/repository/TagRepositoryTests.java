@@ -1,7 +1,6 @@
 package com.fekim.tagdiary2.repository;//package com.fekim.tagdiary.repository;
 
-import com.fekim.tagdiary2.tag.domain.Tag;
-import com.fekim.tagdiary2.tag.domain.TagRepository;
+import com.fekim.tagdiary2.diary.domain.TagRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

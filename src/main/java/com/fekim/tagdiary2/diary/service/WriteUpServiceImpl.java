@@ -1,4 +1,4 @@
-package com.fekim.tagdiary2.writeup.service;
+package com.fekim.tagdiary2.diary.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
