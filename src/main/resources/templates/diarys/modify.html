@@ -4,10 +4,10 @@
     <!-- Post Content-->
 
         <div class="container mt-5">
-            <div class="row">
+            <div class="row justify-content-center">
 
                 <!-- text contents -->
-                <div class="col-lg-8">
+                <div class="col-lg-4">
                     <h1 class="fw-bolder mb-1">
                         <input id="registerTitle" placeholder="제목을 입력하세요" th:value="${diaryDTO.title}" style="border: 0; outline: 0">
                     </h1>
@@ -45,10 +45,10 @@
                 </div>
 
                 <!-- Side widgets-->
-                <div class="col-lg-4">
+                <div class="col-lg-2">
                     <!-- Categories widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">감정</div>
+                    <div class="card mb-4" style="outline: 0; border: 0;">
+                        <div class="card-header" style="background-color: white">감정</div>
                         <div class="card-body">
                             <div class="row">
                                 <div id="tagContainer-emotion" class="post-preview">
@@ -65,7 +65,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-header">여가</div>
+
+                    </div>
+                </div>
+
+                <!-- Side widgets-->
+                <div class="col-lg-2">
+                    <div class="card mb-4" style="outline: 0; border: 0;">
+                        <div class="card-header" style="background-color: white">여가</div>
                         <div class="card-body">
                             <div class="row">
                                 <div id="tagContainer-hobby" class="post-preview">
@@ -85,11 +92,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Side widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
                     </div>
                 </div>
 
