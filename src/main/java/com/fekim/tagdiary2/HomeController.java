@@ -1,4 +1,4 @@
-package com.fekim.tagdiary2.controller;
+package com.fekim.tagdiary2;
 
 import com.fekim.tagdiary2.security.dto.AuthMemberDTO;
 import com.fekim.tagdiary2.tag.dto.TagDTO;
