@@ -46,31 +46,6 @@
 
                 <!-- Side widgets-->
                 <div class="col-lg-2">
-                    <!-- Categories widget-->
-                    <div class="card mb-4" style="outline: 0; border: 0;">
-                        <div class="card-header" style="background-color: white">감정</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div id="tagContainer-emotion" class="post-preview">
-                                    <th:block th:each="tagDTO : ${tags}">
-
-                                        <button th:if="${tagDTO.type=='emotion'}"
-                                                th:id="${tagDTO.tno}"
-                                                class="big-tag-box in-tag-container"
-                                                th:type="${tagDTO.type}"
-                                                th:style="|background-color: ${tagDTO.color}|"
-                                                th:text="${tagDTO.name}"></button>
-
-                                    </th:block>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Side widgets-->
-                <div class="col-lg-2">
                     <div class="card mb-4" style="outline: 0; border: 0;">
                         <div class="card-header" style="background-color: white">여가</div>
                         <div class="card-body">
@@ -89,6 +64,29 @@
 
                                     </th:block>
 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <!-- Categories widget-->
+                    <div class="card mb-4" style="outline: 0; border: 0;">
+                        <div class="card-header" style="background-color: white">감정</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div id="tagContainer-emotion" class="post-preview">
+                                    <th:block th:each="tagDTO : ${tags}">
+
+                                        <button th:if="${tagDTO.type=='emotion'}"
+                                                th:id="${tagDTO.tno}"
+                                                class="big-tag-box in-tag-container"
+                                                th:type="${tagDTO.type}"
+                                                th:style="|background-color: ${tagDTO.color}|"
+                                                th:text="${tagDTO.name}"></button>
+
+                                    </th:block>
                                 </div>
                             </div>
                         </div>
