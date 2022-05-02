@@ -1,7 +1,8 @@
 # 📗Tag Diary
+> 쉽게 쓰고 함께 공유해요<br>
 [데모 서비스 링크](http://ec2-13-125-116-130.ap-northeast-2.compute.amazonaws.com:8080/)
 
-# 소개
+# 1. 소개
 
 😆<strong>손쉽게 로그인하고 다른사람들과 일상을 나눠요</strong>
 
@@ -13,8 +14,9 @@
 
 
 
-# 제작 기간
-2022. 4.13 ~ 4.28 (2주간)
+# 2. 제작 기간 & 참여 인원
+- 2022. 4.13 ~ 4.28 (2주간)
+- 개인 프로젝트
 
 # 🛠 기술 스택
 ## Front-End  
@@ -35,7 +37,7 @@
 <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
 
 
-# DB ERD
+# ERD 설계
 ![image](https://user-images.githubusercontent.com/81150979/165895897-538caebb-f00a-4ebd-8b4e-70f9e9e33970.png)
 
 # 개선한 문제점
