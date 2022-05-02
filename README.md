@@ -37,10 +37,10 @@
 <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
 
 
-# ERD 설계
+# 4. ERD 설계
 ![image](https://user-images.githubusercontent.com/81150979/165895897-538caebb-f00a-4ebd-8b4e-70f9e9e33970.png)
 
-# 개선한 문제점
+# 5. 개선한 문제점
 ## 1. 회원 테이블의 PK를 String 타입에서 Long 타입으로 변경
 - 회원 정보 테이블의 PK를 String 타입으로 지정시 발생하는 문제는 많습니다.(회원탈퇴, 퍼포먼스 문제 등)
 - PK를 Long타입으로 변경하고 name와 email을 Unique Key로 지정하여 문제를 해결하였습니다.
@@ -49,7 +49,7 @@
 - 쿼리는 프로그래밍 언어와 달리 동적으로 변경할 수 없기 때문에, 결국 검색 조건이 10개라면 10개의 쿼리를 만들어야 합니다.
 - Querydsl을 이용하여, 파라미터값에 따라 동적으로 쿼리를 변경해서 수행하는 메소드를 만들어 프로그래밍을 단순화 했습니다.
 
-# 앞으로 개선해야 할 점
+# 6. 앞으로 개선해야 할 점
 ## 1. TagService의 불필요한 참조
 - 가장 인기있는 태그를 찾는 로직이 WriteUp 에서 한번의 쿼리, Tag에서 한번의 쿼리 를 수행합니다.
 - 이는 WriteUp 엔티티가 Tag 엔티티를 참조하고 있기 때문에 발생합니다.
