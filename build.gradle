@@ -44,7 +44,8 @@ dependencies {
 }
 
 tasks.named('test') {
-    useJUnitPlatform()
+    //useJUnitPlatform()
+    exclude '**/*'
 }
 
 def querydslDir = "$buildDir/generated/querydsl"
