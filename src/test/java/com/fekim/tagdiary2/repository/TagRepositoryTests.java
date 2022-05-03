@@ -1,9 +1,11 @@
-package com.fekim.tagdiary2.repository;//package com.fekim.tagdiary.repository;
+package com.fekim.tagdiary2.repository;
 
 import com.fekim.tagdiary2.diary.domain.TagRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest
 public class TagRepositoryTests {
@@ -13,8 +15,6 @@ public class TagRepositoryTests {
 
     @Test
     public void testInsertDummies(){
-
-
 
 //        repository.save(Tag.builder().tagName("기쁨").tagType("emotion").tagColor("#85efea").build());
 //        repository.save(Tag.builder().tagName("억울").tagType("emotion").tagColor("#73dd77").build());
@@ -58,6 +58,15 @@ public class TagRepositoryTests {
 //        repository.save(Tag.builder().tagName("여행").tagType("hobby").tagColor("#6a1a21").build());
 //        repository.save(Tag.builder().tagName("모임").tagType("hobby").tagColor("#accba4").build());
 
+    }
+
+    @Test
+    public void getTnoAndCount(){
+
+        List<long[]> result = repository.getListOfTnoAndCountOfWriteUpByTagType("emotion");
+        for(long[] out : result){
+            System.out.println("tno : " + out[0] + " count : " + out[1]);
+        }
     }
 
 }

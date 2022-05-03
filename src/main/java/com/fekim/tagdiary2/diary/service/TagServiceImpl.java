@@ -17,24 +17,28 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class TagServiceImpl implements TagService{
 
-    private final WriteUpRepository writeUpRepository;
     private final TagRepository tagRepository;
 
     @Override
     public TagDTO getMostPopularTag(String tagType) {
 
-        List<Long> list = writeUpRepository.getTnoListByTagType(tagType);
+        List<long[]> list = tagRepository.getListOfTnoAndCountOfWriteUpByTagType(tagType);
 
-        log.info("============================list : " + list.toString());
+        long max = -1;
+        long maxTno = 0;
 
-        int targetTno = getTargetTno(list);
+        for(long[] pair : list){
+            if(pair[1] > max){
+                max = pair[1];
+                maxTno = pair[0];
+            }
+        }
+        log.info("============================maxTno = " + maxTno);
 
-        log.info("============================targetTno = " + targetTno);
+        Optional<Tag> targetTag = tagRepository.findById(maxTno);
 
-        Optional<Tag> result = tagRepository.findById((long) targetTno);
-
-        if(result.isPresent()){
-            return entityToDTO(result.get());
+        if(targetTag.isPresent()){
+            return entityToDTO(targetTag.get());
         }
 
         return null;
@@ -55,36 +59,4 @@ public class TagServiceImpl implements TagService{
 
     }
 
-    /* 찾는 Tag는 가장 인기 있는 Tag입니다.
-     *  아래 메서드로 조회해야 할 Tag의 tno를 찾습니다.
-     * */
-    public int getTargetTno(List<Long> list){
-
-        Long max = -1L;
-        for(Long i : list){
-            if(i > max){
-                max = i;
-            }
-        }
-
-        int[] arr = new int[max.intValue()+1];
-
-        for(Long i : list){
-            arr[i.intValue()]++;
-        }
-
-        for(int i : arr)
-            log.info(i);
-
-        int tmpMax = -1;
-        int targetTno = -1;
-        for(int i=0; i<arr.length; ++i){
-            if(arr[i] > tmpMax){
-                tmpMax = arr[i];
-                targetTno = i;
-            }
-        }
-
-        return targetTno;
-    }
 }
