@@ -25,8 +25,8 @@ before_deploy:
 
 deploy:
   - provider: s3
-    access_key_id: $AKIA5QMWCSVGWHOPJ7E4
-    secret_access_key: $9U+UIDPoOQEWX6oabX2BAUlemk1gbae0iqMIcFoA
+    access_key_id: AKIA5QMWCSVGWHOPJ7E4
+    secret_access_key: 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
     bucket: tag-diary2-build  # S3 버킷
     skip_cleanup: true
     acl: private  # zip 파일 접근을 private으로
