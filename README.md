@@ -57,6 +57,13 @@
 - 가장 인기있는 태그를 찾는 로직(랭킹시스템)이 WriteUp 에서 한번의 쿼리, Tag에서 한번의 쿼리 를 수행합니다.
 - 이는 WriteUp 엔티티가 Tag 엔티티를 참조하고 있기 때문에 발생합니다.
 - TagRepository에서, join on 을 이용한 쿼리로 List(tno:count) 쌍을 얻는 방법으로 불필요한 참조 문제를 해결했습니다.
+## 4. .gitignore 관리
+- .properties 파일에는 민감한 정보가 들어갑니다
+- application-oauth.properties 파일에는 소셜기능의 인가와 관련된 정보가 들어가며, application-real-db.properties 파일에는 RDS에 접속하기 위해 필요한 정보가 들어갑니다.
+- 처음 프로젝트를 생성하고 Github에 push했을때 .gitignore 파일에 위의 두 .properties 파일을 등록하지 않았습니다.
+- 이는 보안 문제로 이어질 수 있기 때문에 나중에 다시 .gitignore 파일에 등록하였지만 커밋 내역에 코드가 남아있어서 되돌릴 수 없는 상황이었습니다.
+- 이를 해결하기 위해 보안 키를 재발급받고, 새로운 저장소를 만들어 코드를 다시 Github에 push 하였습니다.
+
 
 # 7. 트러블 슈팅(TODO)
 
