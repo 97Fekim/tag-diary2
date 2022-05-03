@@ -12,8 +12,9 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
-# 리눅스에 권한 추가
-before_script : "- chmod +x gradlew"
+# assemble trouble shooting
+before_install:
+  - chmod +x gradlew
 
 script: "./gradlew clean build"
 
