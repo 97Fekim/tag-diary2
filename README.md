@@ -36,6 +36,8 @@
 ## 1. querydsl 을 이용한 검색처리
 ## 2. Page와 Pageable을 이용한 Pagination 처리
 ## 3. Spring Security 와 OAuth2 를 이용한 소셜 로그인
+## 4. Amazon AWS와 Travis CI 를 이용한 배포 자동화
+## 5. 
 
 # 6. 트러블 슈팅
 ## Done
