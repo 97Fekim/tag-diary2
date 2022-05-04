@@ -13,9 +13,8 @@
 ![쉽게 사용해요](https://user-images.githubusercontent.com/81150979/165909210-75192e0e-8187-4b27-84d0-913373bb73f7.gif)
 
 
-
 # 2. 제작 기간 & 참여 인원
-* 2022. 4.13 ~ 4.28
+* 2022.4. 13 ~ 4. 28
 * 개인 프로젝트
 
 # 3. 기술 스택
@@ -33,8 +32,10 @@
 # 4. ERD 설계
 ![image](https://user-images.githubusercontent.com/81150979/165895897-538caebb-f00a-4ebd-8b4e-70f9e9e33970.png)
 
-# 5. 핵심 기능
-
+# 5. 주요 기능
+## 1. querydsl 을 이용한 검색처리
+## 2. Page와 Pageable을 이용한 Pagination 처리
+## 3. Spring Security 와 OAuth2 를 이용한 소셜 로그인
 
 # 6. 트러블 슈팅
 ## Done
