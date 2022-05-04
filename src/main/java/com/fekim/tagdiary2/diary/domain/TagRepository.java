@@ -2,6 +2,7 @@ package com.fekim.tagdiary2.diary.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -13,6 +14,6 @@ public interface TagRepository extends JpaRepository<Tag, Long> {
             "on t.tno = wu.tag.tno " +
             "where t.tagType= :type " +
             "group by t.tno")
-    List<long[]> getListOfTnoAndCountOfWriteUpByTagType(String type);
+    List<long[]> getListOfTnoAndCountOfWriteUpByTagType(@Param("type")String type);
 
 }
