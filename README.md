@@ -26,7 +26,7 @@
 
 
 ## DevOps
-<img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">  <img src="https://img.shields.io/badge/amazon aws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white">  <img src="https://img.shields.io/badge/linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">  <img src="https://img.shields.io/badge/Travis CI-3EAAAF?style=for-the-badge&logo=Travis CI&logoColor=black">
+<img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">  <img src="https://img.shields.io/badge/amazon aws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white">  <img src="https://img.shields.io/badge/linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">  <img src="https://img.shields.io/badge/Travis CI-3EAAAF?style=for-the-badge&logo=Travis CI&logoColor=black">  <img src="https://img.shields.io/badge/NGINX-009639?style=for-the-badge&logo=NGINX&logoColor=black">
 
 
 # 4. ERD 설계
@@ -37,7 +37,7 @@
 ## 2. Page와 Pageable을 이용한 Pagination 처리
 ## 3. Spring Security 와 OAuth2 를 이용한 소셜 로그인
 ## 4. Amazon AWS와 Travis CI 를 이용한 배포 자동화
-## 5. Nginx 를 이용한 무중단 배포(TODO)
+## 5. NGINX 를 이용한 무중단 배포(TODO)
 
 # 6. 트러블 슈팅
 ## Done
