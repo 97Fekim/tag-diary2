@@ -39,7 +39,7 @@ deploy:
     bucket: tag-diary2-build  # S3 버킷
     key: tag-diary2.zip # 빌드 파일을 압축해서 전달
     bundle_type: zip
-    application: tag-diary2 # 웹 콘솔에서 등록한 CodeDeploy 애플리케이션 .
+    application: tag-diary2 # 웹 콘솔에서 등록한 CodeDeploy 애플리케이션 ..
     deployment_group: tag-diary2-group  # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
     region: ap-northeast-2
     wait-until-deployed: true
