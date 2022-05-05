@@ -1,4 +1,4 @@
-package com.fekim.tagdiary2.config;
+package com.fekim.tagdiary2;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.env.Environment;
