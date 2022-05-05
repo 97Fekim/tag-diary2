@@ -37,7 +37,7 @@
 ## 2. Page와 Pageable을 이용한 Pagination 처리
 ## 3. Spring Security 와 OAuth2 를 이용한 소셜 로그인
 ## 4. Amazon AWS와 Travis CI 를 이용한 CI/CD
-## 5. NGINX 를 이용한 무중단 배포(TODO)
+## 5. NGINX 를 이용한 무중단 배포
 
 # 6. 핵심 트러블 슈팅
 <details>
