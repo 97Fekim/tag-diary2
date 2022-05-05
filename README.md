@@ -40,7 +40,6 @@
 ## 5. NGINX 를 이용한 무중단 배포(TODO)
 
 # 6. 핵심 트러블 슈팅
-## Done
 <details>
 <summary> <strong>1. 회원 테이블의 PK를 String 타입에서 Long 타입으로 변경</strong> </summary>
 - 회원 정보 테이블의 PK를 String 타입으로 지정시 발생하는 문제는 많습니다.
@@ -91,7 +90,7 @@
 - 후에 React.js나 Vue.js 와 같은 프론트엔드 프레임워크로 웹 페이지를 구성하고, 서버에서는 REST Controller를 이용하여 API만을 제공하는 방식으로 이를 해결합니다.
 </details>
 
-## 그 외 이슈
+# 7. 그 외 이슈
 <details>
 <summary> <strong>1. 이미 사용중인 8080포트로 인한 배포 오류</strong> </summary>
 - <code>netstat -ltpane</code> 와 <code>kill (pid)</code> 명령어를 이용하여 이미 사용중인 8080포트를 죽입니다.
