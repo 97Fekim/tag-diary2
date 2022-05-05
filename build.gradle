@@ -42,7 +42,6 @@ dependencies {
 
     implementation 'org.mariadb.jdbc:mariadb-java-client'
 
-    compile group: 'org.thymeleaf', name: 'thymeleaf', version: '3.0.2.RELEASE'
 }
 
 tasks.named('test') {
