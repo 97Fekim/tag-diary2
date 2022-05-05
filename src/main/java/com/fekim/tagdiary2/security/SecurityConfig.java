@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/diarys/**/*").hasRole("USER")
-                        .antMatchers("/profile").permitAll();
+                        .antMatchers("/profile/**/*").permitAll();
 
 
         http.formLogin().successHandler(loginSuccessHandler()).failureHandler(loginFailureHandler());   // 인가/인증에 문제시 로그인 화면, .loginPage()나 .loginProcessUrl() 을 이용해서 커스텀 로그인 페이지 적용 가능
