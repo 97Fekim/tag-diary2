@@ -1,4 +1,4 @@
-package com.fekim.tagdiary2.config;
+package com.fekim.tagdiary2.security;
 
 import com.fekim.tagdiary2.security.handler.CustomLoginFailureHandler;
 import com.fekim.tagdiary2.security.handler.CustomLoginSuccessHandler;
