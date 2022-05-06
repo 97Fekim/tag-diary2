@@ -33,11 +33,14 @@
 ![image](https://user-images.githubusercontent.com/81150979/165895897-538caebb-f00a-4ebd-8b4e-70f9e9e33970.png)
 
 # 5. 주요 기능
-## 1. querydsl 을 이용한 검색처리
-## 2. Page와 Pageable을 이용한 Pagination 처리
-## 3. Spring Security 와 OAuth2 를 이용한 소셜 로그인
-## 4. Amazon AWS와 Travis CI 를 이용한 CI/CD
-## 5. NGINX 를 이용한 무중단 배포
+> 오늘 등록된 모든 일기 중, <strong>가장 인기있는 태그</strong>를 메인화면에 노출합니다<br> 
+
+> 일기를 등록할때, <strong>일상과 관련된 키워드</strong>를 제공하여 어떻게 쓰기 시작해야 할 지 망설이지 않도록 돕습니다.<br>
+
+> 일기 리스트에 태그를 노출시켜서 <strong>그날 그날의 키워드</strong>를 한 눈에 볼 수 있도록 합니다.<br>
+
+> <strong>카테고리별 검색 기능</strong>을 제공합니다. 제목과 태그 둘 모두로 일기를 검색할 수 있습니다.<br>
+
 
 # 6. 핵심 트러블 슈팅
 <details>
