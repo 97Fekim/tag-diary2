@@ -1,6 +1,6 @@
 # 📗Tag Diary
 > 쉽게 쓰고 함께 공유해요<br>
-[데모 서비스 링크](http://ec2-13-125-116-130.ap-northeast-2.compute.amazonaws.com:8080/)
+[데모 서비스 링크](http://ec2-13-125-116-130.ap-northeast-2.compute.amazonaws.com)
 
 # 1. 소개
 
