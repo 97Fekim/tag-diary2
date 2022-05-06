@@ -33,13 +33,24 @@
 ![image](https://user-images.githubusercontent.com/81150979/165895897-538caebb-f00a-4ebd-8b4e-70f9e9e33970.png)
 
 # 5. 주요 기능
-> 오늘 등록된 모든 일기 중, <strong>가장 인기있는 태그</strong>를 메인화면에 노출합니다<br> 
+> 1. 오늘 등록된 모든 일기 중, <strong>가장 인기있는 태그</strong>를 메인화면에 노출합니다<br>
+>> ![tempsnip4](https://user-images.githubusercontent.com/81150979/167061271-cafdfdfc-27ea-47df-a39e-ee944225d862.png)
 
-> 일기를 등록할때, <strong>일상과 관련된 키워드</strong>를 제공하여 어떻게 쓰기 시작해야 할 지 망설이지 않도록 돕습니다.<br>
+<br>
 
-> 일기 리스트에 태그를 노출시켜서 <strong>그날 그날의 키워드</strong>를 한 눈에 볼 수 있도록 합니다.<br>
+> 2. 일기를 등록할때, <strong>일상과 관련된 키워드</strong>를 제공하여 어떻게 쓰기 시작해야 할 지 망설이지 않도록 돕습니다.<br>
+>> ![tempsnip1](https://user-images.githubusercontent.com/81150979/167060879-c6bd0267-b012-4e5c-b700-e94b999377c8.png)
 
-> <strong>카테고리별 검색 기능</strong>을 제공합니다. 제목과 태그 둘 모두로 일기를 검색할 수 있습니다.<br>
+<br>
+
+> 3. 일기 리스트에 태그를 노출시켜서 <strong>그날 그날의 키워드</strong>를 한 눈에 볼 수 있도록 합니다.<br>
+>> ![tempsnip](https://user-images.githubusercontent.com/81150979/167060813-d449d8d3-99f8-4460-8871-3e82e88fad91.png)
+
+<br>
+
+> 4. <strong>카테고리별 검색 기능</strong>을 제공합니다. 제목과 태그 둘 모두로 일기를 검색할 수 있습니다.
+>> ![tempsnip2](https://user-images.githubusercontent.com/81150979/167061151-74469d87-e6a4-42ec-a1bb-85f4b75bd53f.png)
+>> ![tempsnip3](https://user-images.githubusercontent.com/81150979/167061153-f3e6818e-eb77-4745-84cb-26a6e9526fbd.png)
 
 
 # 6. 핵심 트러블 슈팅
