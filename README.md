@@ -38,8 +38,8 @@
 
 <br>
 
-> 2. 일기를 등록할때, <strong>일상과 관련된 키워드</strong>를 제공하여 어떻게 쓰기 시작해야 할 지 망설이지 않도록 돕습니다.<br>
->> ![tempsnip1](https://user-images.githubusercontent.com/81150979/167060879-c6bd0267-b012-4e5c-b700-e94b999377c8.png)
+> 2. 일기를 등록할때, <strong>일상과 관련된 키워드</strong>를 제공하여, 일기를 어떻게 쓰기 시작해야 할 지 망설이지 않도록 돕습니다.<br>
+>> ![tempsnip4](https://user-images.githubusercontent.com/81150979/167147192-c80a2ea9-154d-4c68-b147-cd68f47fc74b.png)
 
 <br>
 
