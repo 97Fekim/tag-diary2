@@ -3,6 +3,7 @@ package com.fekim.tagdiary2.security;
 import com.fekim.tagdiary2.security.handler.CustomLoginFailureHandler;
 import com.fekim.tagdiary2.security.handler.CustomLoginSuccessHandler;
 import com.fekim.tagdiary2.security.handler.CustomLogoutSuccessHandler;
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,10 +18,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @Log4j2
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)   // preAuthorize를 사용하기 위함임
+@AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
 
     @Bean
     PasswordEncoder passwordEncoder(){
