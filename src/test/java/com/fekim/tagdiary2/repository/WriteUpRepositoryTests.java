@@ -5,15 +5,21 @@ import com.fekim.tagdiary2.diary.domain.Tag;
 import com.fekim.tagdiary2.diary.domain.WriteUp;
 import com.fekim.tagdiary2.diary.domain.WriteUpRepository;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
+@WebAppConfiguration
 @SpringBootTest
 public class WriteUpRepositoryTests {
 
