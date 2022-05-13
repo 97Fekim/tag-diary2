@@ -19,6 +19,7 @@ public class Tag extends BaseEntity {
 
     String tagName;
 
+    /* 추후에 태그의 타입은 계층형 카테고리 테이블로 변경합니다. */
     String tagType;
 
     @Column(unique = true)
