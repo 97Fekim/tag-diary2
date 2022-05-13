@@ -19,6 +19,9 @@ public class TagServiceImpl implements TagService{
 
     private final TagRepository tagRepository;
 
+    /* 홈페이지에서 사용할 "가장 인기있는 태그"를 가져옵니다.
+    * 파라미터로 태그의 키워드(일상, 감정 등)을 받습니다.
+    * */
     @Override
     public TagDTO getMostPopularTag(String tagType) {
 
@@ -44,6 +47,7 @@ public class TagServiceImpl implements TagService{
         return null;
     }
 
+    /* 등록, 수정 페이지에서 사용할 태그 리스트를 가져옵니다 */
     @Override
     public List<TagDTO> getList() {
 
