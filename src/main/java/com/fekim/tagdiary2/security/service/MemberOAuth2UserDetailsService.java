@@ -74,7 +74,7 @@ public class MemberOAuth2UserDetailsService extends DefaultOAuth2UserService {
 
     private Member saveSocialMember(String email){
 
-        Optional<Member> result = memberRepository.findByEmail(email, true);
+        Optional<Member> result = memberRepository.findByEmailAndSocial(email, true);
 
         if(result.isPresent()){
             return result.get();
@@ -93,7 +93,7 @@ public class MemberOAuth2UserDetailsService extends DefaultOAuth2UserService {
         memberRepository.save(member);
 
         /* id를 얻기 위해, 다시 조회해서 가져옴 */
-        Optional<Member> saved = memberRepository.findByEmail(email, true);
+        Optional<Member> saved = memberRepository.findByEmailAndSocial(email, true);
 
         return saved.get();
 
