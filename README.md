@@ -30,11 +30,13 @@
 ## DevOps
 <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">  <img src="https://img.shields.io/badge/amazon aws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white">  <img src="https://img.shields.io/badge/linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">  <img src="https://img.shields.io/badge/Travis CI-3EAAAF?style=for-the-badge&logo=Travis CI&logoColor=black">  <img src="https://img.shields.io/badge/NGINX-009639?style=for-the-badge&logo=NGINX&logoColor=black">
 
+# 4. 인프라 구조
+![image](https://user-images.githubusercontent.com/81150979/168476802-cf85f48f-91c7-4cb6-bb63-91ae37d419af.png)
 
-# 4. ERD 설계
+# 5. ERD 설계
 ![image](https://user-images.githubusercontent.com/81150979/165895897-538caebb-f00a-4ebd-8b4e-70f9e9e33970.png)
 
-# 5. 주요 기능
+# 6. 주요 기능
 > 1. 오늘 등록된 모든 일기 중, <strong>가장 인기있는 태그</strong>를 메인화면에 노출합니다<br>
 >> ![tempsnip4](https://user-images.githubusercontent.com/81150979/167061271-cafdfdfc-27ea-47df-a39e-ee944225d862.png)
 
@@ -55,7 +57,7 @@
 >> ![tempsnip3](https://user-images.githubusercontent.com/81150979/167061153-f3e6818e-eb77-4745-84cb-26a6e9526fbd.png)
 
 
-# 6. 핵심 트러블 슈팅
+# 7. 핵심 트러블 슈팅
 <details>
 <summary> <strong>1. 회원 테이블의 PK를 String으로 지정시 발생할 수 있는 문제</strong> </summary>
   - 회원 정보 테이블의 PK를 String 타입으로 지정시 발생하는 문제는 많습니다.<br><br>
@@ -108,7 +110,7 @@
   - 후에 React.js나 Vue.js 와 같은 프론트엔드 프레임워크로 웹 페이지를 구성하고, 서버에서는 REST Controller를 이용하여 API만을 제공하는 방식으로 이를 해결합니다.<br>
 </details>
 
-# 7. 그 외 이슈
+# 8. 그 외 이슈
 <details>
 <summary> <strong>1. 로컬에선 정상이지만 배포 환경에서 발생하는 View Reslover 문제</strong> </summary>
   - MVC Controller의 <code>return</code> 을 이용해 페이지를 이동할 때, 아래와 같은 이슈를 발견하여 수정했습니다.<br>
