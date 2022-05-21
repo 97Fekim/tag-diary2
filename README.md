@@ -123,3 +123,14 @@
 <summary> <strong>2. 이미 사용중인 8080포트로 인한 배포 오류</strong> </summary>
   - EC2 상에서 <code>netstat -ltpane</code> 와 <code>kill (pid)</code> 명령어를 이용하여 이미 사용중인 8080포트를 죽입니다.
 </details>
+
+<details>
+<summary> <strong>3. form 태그로 Post 요청시 발생하는 403 forbidden 에러</strong> </summary>
+  - 403 forbidden error는 권한에 관련된 에러입니다.<br>
+  - Post 요청을 처리하는 컨트롤러에서 <code>@AuthenticationPrincipal</code> 를 파라미터로 수집하여 해결하였습니다.<br>
+</details>
+
+<details>
+<summary> <strong>4. CodeDeploy 역할 관련 에러</strong> </summary>
+  - <string>AmazonEC2RoleforAWSCodeDeploy</strong> 역할을 deploy 권한으로 추가하여 해결하였습니다.<br>
+</details>
