@@ -43,12 +43,11 @@
 <br>
 
 > 2. 일기를 등록할때, <strong>일상과 관련된 키워드</strong>를 제공하여, 일기를 어떻게 쓰기 시작해야 할 지 망설이지 않도록 돕습니다.<br>
->> ![tempsnip4](https://user-images.githubusercontent.com/81150979/167147192-c80a2ea9-154d-4c68-b147-cd68f47fc74b.png)
-
+>> ![2](https://user-images.githubusercontent.com/81150979/169665265-a8367dd5-606b-4f53-80c4-571e19f3b896.png)
 <br>
 
 > 3. 일기 리스트에 태그를 노출시켜서 <strong>그날 그날의 키워드</strong>를 한 눈에 볼 수 있도록 합니다.<br>
->> ![tempsnip](https://user-images.githubusercontent.com/81150979/167060813-d449d8d3-99f8-4460-8871-3e82e88fad91.png)
+>> ![3](https://user-images.githubusercontent.com/81150979/169665272-cb3f45d7-f168-4792-afed-a9a3c850f02a.png)
 
 <br>
 
