@@ -131,6 +131,29 @@
 </details>
 
 <details>
-<summary> <strong>4. CodeDeploy 역할 관련 에러</strong> </summary>
+<summary> <strong>4. Querydsl 객체의 import가 안되는 오류</strong> </summary>
+  - IntelliJ IDE에서 File/Settings/Compiler/Annotation Processors/Enavle annotation processing 을 체크하여 해결합니다<br>
+</details>
+
+<details>
+<summary> <strong>5. 멀쩡히 존재하는 패키지에 있는 클래스를 못 찾는 경우</strong> </summary>
+  - IntelliJ IDE에서 File/Invalidate caches/restart 로 해결합니다.<br>
+</details>
+
+<details>
+<summary> <strong>6. form 태그 submit 요청시 ;(세미콜론)이 추가되어 넘어가는 오류</strong> </summary>
+  - name이 겹치는 input 태그가 존재할때 해당 오류가 발생입니다. 이를 유의하여 태그를 추가합니다.<br>
+</details>
+
+<details>
+<summary> <strong>7. ajax 요청시 cannot deserialize from object value 에러</strong> </summary>
+  - 컨트롤러에서 수집하는 타입의 객체 생성자가 없는 경우 발생합니다.<br>
+  - 클래스에 <code>@NoArgConstructor</code>나 <code>@AllArgsConstructor</code> 를 붙여서 해결합니다.<br>
+</details>
+
+<details>
+<summary> <strong>8. CodeDeploy 역할 관련 에러</strong> </summary>
   - <string>AmazonEC2RoleforAWSCodeDeploy</strong> 역할을 deploy 권한으로 추가하여 해결하였습니다.<br>
 </details>
+
+
