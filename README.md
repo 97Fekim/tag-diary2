@@ -38,7 +38,7 @@
 
 # 6. 주요 기능
 > 1. 오늘 등록된 모든 일기 중, <strong>가장 인기있는 태그</strong>를 메인화면에 노출합니다<br>
->> ![tempsnip4](https://user-images.githubusercontent.com/81150979/167061271-cafdfdfc-27ea-47df-a39e-ee944225d862.png)
+>> ![1](https://user-images.githubusercontent.com/81150979/169665221-d66c70c8-0868-4840-b80c-4fc3ca3af606.png)
 
 <br>
 
