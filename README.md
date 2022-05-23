@@ -38,17 +38,16 @@
 
 # 6. 주요 기능
 > 1. 오늘 등록된 모든 일기 중, <strong>가장 인기있는 태그</strong>를 메인화면에 노출합니다<br>
->> ![tempsnip4](https://user-images.githubusercontent.com/81150979/167061271-cafdfdfc-27ea-47df-a39e-ee944225d862.png)
+>> ![1](https://user-images.githubusercontent.com/81150979/169665221-d66c70c8-0868-4840-b80c-4fc3ca3af606.png)
 
 <br>
 
 > 2. 일기를 등록할때, <strong>일상과 관련된 키워드</strong>를 제공하여, 일기를 어떻게 쓰기 시작해야 할 지 망설이지 않도록 돕습니다.<br>
->> ![tempsnip4](https://user-images.githubusercontent.com/81150979/167147192-c80a2ea9-154d-4c68-b147-cd68f47fc74b.png)
-
+>> ![2](https://user-images.githubusercontent.com/81150979/169665265-a8367dd5-606b-4f53-80c4-571e19f3b896.png)
 <br>
 
 > 3. 일기 리스트에 태그를 노출시켜서 <strong>그날 그날의 키워드</strong>를 한 눈에 볼 수 있도록 합니다.<br>
->> ![tempsnip](https://user-images.githubusercontent.com/81150979/167060813-d449d8d3-99f8-4460-8871-3e82e88fad91.png)
+>> ![3](https://user-images.githubusercontent.com/81150979/169665272-cb3f45d7-f168-4792-afed-a9a3c850f02a.png)
 
 <br>
 
@@ -123,3 +122,37 @@
 <summary> <strong>2. 이미 사용중인 8080포트로 인한 배포 오류</strong> </summary>
   - EC2 상에서 <code>netstat -ltpane</code> 와 <code>kill (pid)</code> 명령어를 이용하여 이미 사용중인 8080포트를 죽입니다.
 </details>
+
+<details>
+<summary> <strong>3. form 태그로 Post 요청시 발생하는 403 forbidden 에러</strong> </summary>
+  - 403 forbidden error는 권한에 관련된 에러입니다.<br>
+  - Post 요청을 처리하는 컨트롤러에서 <code>@AuthenticationPrincipal</code> 를 파라미터로 수집하여 해결하였습니다.<br>
+</details>
+
+<details>
+<summary> <strong>4. Querydsl 객체의 import가 안되는 오류</strong> </summary>
+  - IntelliJ IDE에서 File/Settings/Compiler/Annotation Processors/Enavle annotation processing 을 체크하여 해결합니다<br>
+</details>
+
+<details>
+<summary> <strong>5. 멀쩡히 존재하는 패키지에 있는 클래스를 못 찾는 경우</strong> </summary>
+  - IntelliJ IDE에서 File/Invalidate caches/restart 로 해결합니다.<br>
+</details>
+
+<details>
+<summary> <strong>6. form 태그 submit 요청시 ;(세미콜론)이 추가되어 넘어가는 오류</strong> </summary>
+  - name이 겹치는 input 태그가 존재할때 해당 오류가 발생입니다. 이를 유의하여 태그를 추가합니다.<br>
+</details>
+
+<details>
+<summary> <strong>7. ajax 요청시 cannot deserialize from object value 에러</strong> </summary>
+  - 컨트롤러에서 수집하는 타입의 객체 생성자가 없는 경우 발생합니다.<br>
+  - 클래스에 <code>@NoArgConstructor</code>나 <code>@AllArgsConstructor</code> 를 붙여서 해결합니다.<br>
+</details>
+
+<details>
+<summary> <strong>8. CodeDeploy 역할 관련 에러</strong> </summary>
+  - <string>AmazonEC2RoleforAWSCodeDeploy</strong> 역할을 deploy 권한으로 추가하여 해결하였습니다.<br>
+</details>
+
+
