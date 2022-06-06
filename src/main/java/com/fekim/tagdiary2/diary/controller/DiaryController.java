@@ -30,6 +30,7 @@ public class DiaryController {
 
     private final TagService tagService;
 
+    // 등록 페이지로 이동
     @GetMapping("/register")
     public void registerGet(@AuthenticationPrincipal AuthMemberDTO authMemberDTO,
                             Model model){
@@ -37,6 +38,7 @@ public class DiaryController {
         model.addAttribute("tagDTOList",tagService.getList());
     }
 
+    // 게시글 등록
     @PostMapping("/register")
     public String registerPost(@AuthenticationPrincipal AuthMemberDTO authMemberDTO,
                                @RequestBody DiaryDTO diaryDTO,
@@ -44,23 +46,29 @@ public class DiaryController {
         log.info("==================register post");
         log.info("==================diaryDTO : " + diaryDTO);
         log.info("==================auth info : " + authMemberDTO);
-
-
+        
+        // 일기 게시글에 멤버 정보를 등록
         diaryDTO.setWriterId(authMemberDTO.getId());
 
         Long dno = diaryService.register(diaryDTO);
 
+        /* 몇번째 일기인지를 실어서 FlashAttribute로 보냅니다
+        * 아직 이 FlashAttribute를 활용하는 기능은 없습니다.
+        * */
         redirectAttributes.addFlashAttribute("msg", dno);
 
+        // 등록 후 list 페이지로 Redirect 시킵니다.
         return "redirect:/diarys/list";
 
     }
 
+    // 리스트 페이지로 이동
     @GetMapping("/list")
     public void list(@AuthenticationPrincipal AuthMemberDTO authMemberDTO,
                      @ModelAttribute("pageRequestDTO") PageRequestDTO pageRequestDTO,
                      Model model){
 
+        //
         pageRequestDTO.setWriterId(authMemberDTO.getId());
 
         PageResultDTO pageResultDTO = diaryService.getListPage(pageRequestDTO);

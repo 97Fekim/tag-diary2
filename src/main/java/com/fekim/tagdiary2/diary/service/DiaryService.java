@@ -85,10 +85,12 @@ public interface DiaryService {
 
         try{
 
+            // entity.size()가 0일 경우,
+            // 즉 조회된 엔티티가 없을 경우 예외를 발생합니다 
             Diary diary = (Diary) entity.get(entity.size() - 1)[0];
             diaryDTO.setDno(diary.getDno());
             diaryDTO.setTitle(diary.getTitle());
-            diaryDTO.setWriterId(diary.getWriter().getId()); // 목록에서 회원이름을 가져올지 말지 미정
+            diaryDTO.setWriterId(diary.getWriter().getId());
             diaryDTO.setRegDate(diary.getRegDate());
             diaryDTO.setModDate(diary.getModDate());
 
