@@ -30,20 +30,33 @@ public class SearchDiaryRepositoryImpl extends QuerydslRepositorySupport impleme
     public Page<Diary> searchPage(String type, String keyword, Long writerId, Pageable pageable) {
         log.info("searchPage.......................");
 
+        // queryDsl을 이용하여 동적으로 쿼리를 생성합니다.
+        // 검색조건이 다양해질때, Repository 에서 일일이 쿼리를 만들기 않아도 되기 때문에 유용합니다.
         QDiary diary = QDiary.diary;
         QWriteUp writeUp = QWriteUp.writeUp;
         QTag tag = QTag.tag;
 
+        // from diary d
         JPQLQuery<Diary> jpqlQuery = from(diary);
 
+        // LEFT JOIN writeUp w on w.dno = d.dno 
         jpqlQuery.leftJoin(writeUp).on(writeUp.diary.eq(diary));
+        // LEFT JOIN tag t on w.tno = t.tno
         jpqlQuery.leftJoin(tag).on(writeUp.tag.eq(tag));
 
+        
+        /* 최종 쿼리
+        * SELECT * FROM diary d 
+        * LEFT JOIN writeUp w on w.dno = d.dno
+        * LEFT JOIN tag t on w.tno = t.tno
+        * WHERE 절은 뒤에서 추가
+        * */
         JPQLQuery<Diary> query = jpqlQuery.select(diary);
 
         /* Builder 만들기 시작 */
         BooleanBuilder booleanBuilder = new BooleanBuilder();
 
+        // WHERE d.dno > 0
         booleanBuilder.and(diary.dno.gt(0L));
 
         /* 검색 조건 작성 시작 */
@@ -52,20 +65,25 @@ public class SearchDiaryRepositoryImpl extends QuerydslRepositorySupport impleme
             BooleanBuilder conditionBuilder = new BooleanBuilder();
 
             switch (type){
-                case "diaryTitle":
+                 
+                case "diaryTitle": // 제목으로 검색
                     conditionBuilder.or(diary.title.contains(keyword));
-                    break;
-                case "tagName":
+                    break;  // or d.title like '%keyword%'
+                case "tagName": // 태그명으로 검색
                     conditionBuilder.or(writeUp.tag.tagName.contains(keyword));
-                    break;
+                    break;  // or w.tag.tag_name like '%keyword%'
             }
 
             booleanBuilder.and(conditionBuilder);
         }
 
         query.where(booleanBuilder);
+
+        // 해당 유저의 일기만 가져와야 함.
+        // where d.member.mno = writerId
         query.where(diary.writer.id.eq(writerId));
 
+        // 여기서부터 정렬 처리
         Sort sort = pageable.getSort();
 
         sort.stream().forEach(order -> {
@@ -83,10 +101,12 @@ public class SearchDiaryRepositoryImpl extends QuerydslRepositorySupport impleme
         query.offset(pageable.getOffset());
         query.limit(pageable.getPageSize());
         query.groupBy(diary);
+        // 여기까지 정렬 처리
 
         List<Diary> result = query.fetch();
 
         long count = query.fetchCount();
+
 
         return new PageImpl<Diary>(
                 result,
