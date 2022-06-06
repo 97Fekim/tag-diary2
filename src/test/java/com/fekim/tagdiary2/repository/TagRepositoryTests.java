@@ -1,9 +1,12 @@
 package com.fekim.tagdiary2.repository;
 
+import com.fekim.tagdiary2.diary.domain.Tag;
 import com.fekim.tagdiary2.diary.domain.TagRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.test.annotation.Commit;
 
 import java.util.List;
 
@@ -12,6 +15,7 @@ public class TagRepositoryTests {
 
     @Autowired
     private TagRepository repository;
+
 
     @Test
     public void testInsertDummies(){
@@ -53,9 +57,9 @@ public class TagRepositoryTests {
 //        repository.save(Tag.builder().tagName("운동").tagType("hobby").tagColor("#eac4a8").build());
 //        repository.save(Tag.builder().tagName("스포츠").tagType("hobby").tagColor("#ea7539").build());
 //        repository.save(Tag.builder().tagName("요리").tagType("hobby").tagColor("#4aea5d").build());
-//        repository.save(Tag.builder().tagName("산책").tagType("hobby").tagColor("#5c6bea").build());
-//        repository.save(Tag.builder().tagName("독서").tagType("hobby").tagColor("#179030").build());
-//        repository.save(Tag.builder().tagName("여행").tagType("hobby").tagColor("#6a1a21").build());
+        repository.save(Tag.builder().tagName("돈돈").tagType("hobby").tagColor("#0dcaf0").build());
+        repository.save(Tag.builder().tagName("나나").tagType("hobby").tagColor("#0085A1").build());
+        repository.save(Tag.builder().tagName("뿌뿌").tagType("hobby").tagColor("#0d6efd").build());
 //        repository.save(Tag.builder().tagName("모임").tagType("hobby").tagColor("#accba4").build());
 
     }
