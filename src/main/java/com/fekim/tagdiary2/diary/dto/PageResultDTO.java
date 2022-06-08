@@ -10,19 +10,22 @@ import java.util.stream.IntStream;
 @Data
 public class PageResultDTO {
 
-    private List<DiaryDTO> dtoList;
-    private int page;
-    private int size;
-    private int totalPage;
-    private int start, end;
-    private boolean prev, next;
-    private List<Integer> pageList;
+    private List<DiaryDTO> dtoList; // 페이지의 모든 일기를 List로 가지고 있습니다.
+
+    // pagination
+    private int page;   // 몇번째 페이지인지
+    private int size;   // 한 페이지에 몇개의 일기를 가져올지
+    private int totalPage;  // 총 몇페이지인지
+    private int start, end; // 첫페이지와, 끝페이지는 몇인지
+    private boolean prev, next; // 이전페이지와 다음페이지가 있는지 없는지
+    private List<Integer> pageList; // 모든 페이지 번호를 List로 가지고 있습니다.
 
     public PageResultDTO(List<DiaryDTO> result, int totalPage){
         this.dtoList = result;
         this.totalPage = totalPage;
     }
 
+    // pagination 정보를 생성합니다.
     public void makePageList(Pageable pageable){
         this.page = pageable.getPageNumber() + 1;
         this.size = pageable.getPageSize();

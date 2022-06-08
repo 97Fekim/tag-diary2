@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 public class WriteUpDTO {
 
     private Long wno;
-    private Long dno;
-    private String content;
-    private TagDTO tagDTO;
+    private Long dno;   // 몇번째 일기에 존재하는 WriteUp인지 나타냅니다
+    private String content; // 내용은 1개의 Tag와 같이 쓰여집니다.
+    private TagDTO tagDTO;  // 1개의 WriteUp은 1개의 Tag를 가지고 있습니다.
 
 }

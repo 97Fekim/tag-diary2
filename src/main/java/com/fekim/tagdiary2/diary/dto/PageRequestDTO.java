@@ -13,13 +13,14 @@ import org.springframework.data.domain.Sort;
 public class PageRequestDTO {
     private int page;    // 몇번째 페이지를 가져올건지
     private int size;    // 한번에 몇 개의 페이지를 가져올건지
-    private String type;
-    private String keyword;
-    private Long writerId;
+    private String type;    // 어떤 종류로 검색했는지
+    private String keyword; // 검색명은 무엇인지
+    private Long writerId;  // 현재 로그인중인 회원의 ID(primary key)
 
+    // 기본생성자
     public PageRequestDTO(){
-        this.page = 1;
-        this.size = 10;
+        this.page = 1;  // default로 1페이지
+        this.size = 10; // 1페이지에 10개씩
     }
 
     // PageRequestDTO 는 가져올 페이지에 대한 설정정보를 담고 있다.
