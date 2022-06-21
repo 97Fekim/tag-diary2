@@ -10,6 +10,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
+// BaseEntity를 상속받은 엔티티는 생성일과 수정일이 자동으로 DB에 등록됩니다.
 @MappedSuperclass()
 @EntityListeners(value = {AuditingEntityListener.class})
 @Getter
