@@ -33,7 +33,7 @@
 # 4. 인프라 구조
 ![image](https://user-images.githubusercontent.com/81150979/168476960-5b612670-082f-4225-981a-23318fbc5511.png)
 
-# 5. ERD 설계
+# 5. 데이터 모델링
 ![image](https://user-images.githubusercontent.com/81150979/165895897-538caebb-f00a-4ebd-8b4e-70f9e9e33970.png)
 
 # 6. 주요 기능
